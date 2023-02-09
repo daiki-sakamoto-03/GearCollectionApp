@@ -29,7 +29,6 @@ DerivedData/
 
 ## library
 Pods/*
-Carthage/Build/
 
 ## Other
 *.moved-aside
