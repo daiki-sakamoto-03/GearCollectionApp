@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		14324252244D355B83816551 /* Pods_GearCollectionApp_GearCollectionAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B4CC14D66D1A43515DB736 /* Pods_GearCollectionApp_GearCollectionAppUITests.framework */; };
 		30F5A4D2D5931DE1C8C50322 /* Pods_GearCollectionApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A92AE29DAD98A566632868 /* Pods_GearCollectionApp.framework */; };
+		523E8E132997909B00BC6C15 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523E8E112997909B00BC6C15 /* CollectionViewCell.swift */; };
+		523E8E142997909B00BC6C15 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 523E8E122997909B00BC6C15 /* CollectionViewCell.xib */; };
 		5258BABF2993C05A00814796 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258BABE2993C05A00814796 /* AppDelegate.swift */; };
 		5258BAC12993C05A00814796 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258BAC02993C05A00814796 /* SceneDelegate.swift */; };
 		5258BAC32993C05A00814796 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258BAC22993C05A00814796 /* ViewController.swift */; };
@@ -41,6 +43,8 @@
 /* Begin PBXFileReference section */
 		1919560782DADAC9C9A14D01 /* Pods_GearCollectionAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GearCollectionAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		269C8380CC2741CEF78946BB /* Pods-GearCollectionAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GearCollectionAppTests.debug.xcconfig"; path = "Target Support Files/Pods-GearCollectionAppTests/Pods-GearCollectionAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		523E8E112997909B00BC6C15 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		523E8E122997909B00BC6C15 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		5258BABB2993C05A00814796 /* GearCollectionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GearCollectionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5258BABE2993C05A00814796 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5258BAC02993C05A00814796 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 				5258BABE2993C05A00814796 /* AppDelegate.swift */,
 				5258BAC02993C05A00814796 /* SceneDelegate.swift */,
 				5258BAC22993C05A00814796 /* ViewController.swift */,
+				523E8E112997909B00BC6C15 /* CollectionViewCell.swift */,
+				523E8E122997909B00BC6C15 /* CollectionViewCell.xib */,
 				5258BAC42993C05A00814796 /* Main.storyboard */,
 				5258BAC72993C05B00814796 /* Assets.xcassets */,
 				5258BAC92993C05B00814796 /* LaunchScreen.storyboard */,
@@ -278,6 +284,7 @@
 			files = (
 				5258BACB2993C05B00814796 /* LaunchScreen.storyboard in Resources */,
 				5258BAC82993C05B00814796 /* Assets.xcassets in Resources */,
+				523E8E142997909B00BC6C15 /* CollectionViewCell.xib in Resources */,
 				5258BAC62993C05A00814796 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,6 +415,7 @@
 			files = (
 				5258BAC32993C05A00814796 /* ViewController.swift in Sources */,
 				5258BABF2993C05A00814796 /* AppDelegate.swift in Sources */,
+				523E8E132997909B00BC6C15 /* CollectionViewCell.swift in Sources */,
 				5258BAC12993C05A00814796 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
