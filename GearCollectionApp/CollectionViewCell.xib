@@ -16,9 +16,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="129" height="23"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWp-B6-3ye">
-                        <rect key="frame" x="45" y="2" width="38" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWp-B6-3ye">
+                        <rect key="frame" x="45.666666666666657" y="2.6666666666666661" width="38" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -26,6 +25,10 @@
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="gWp-B6-3ye" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="CZy-8b-ecr"/>
+                <constraint firstItem="gWp-B6-3ye" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="zaA-TQ-g6N"/>
+            </constraints>
             <size key="customSize" width="129" height="23"/>
             <connections>
                 <outlet property="label" destination="gWp-B6-3ye" id="av3-Lo-szD"/>

@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     
     // カテゴリ分け
     enum GearType: CaseIterable {
+        case all
         case tentAndTarp
         case tableAndChair
         case fire
@@ -23,13 +24,15 @@ class ViewController: UIViewController {
         case other
     }
     
+    // enumを配列に変換
+    let allCases: [GearType] = GearType.allCases
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // セルを登録する
         collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CustomCell")
     }
-    
 }
 
 
@@ -63,4 +66,5 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             scrollView.contentOffset.x = pageTabItemsWidth
         }
     }
+    
 }
