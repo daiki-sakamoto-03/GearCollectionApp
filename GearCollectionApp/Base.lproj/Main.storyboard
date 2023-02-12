@@ -44,7 +44,7 @@
                                 </items>
                             </navigationBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="o6y-dy-3dI">
-                                <rect key="frame" x="0.0" y="103" width="393" height="46"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="45"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MnU-CV-ajG">
                                     <size key="itemSize" width="128" height="128"/>
@@ -54,7 +54,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="cnB-HN-sKv">
-                                        <rect key="frame" x="0.0" y="-41" width="128" height="128"/>
+                                        <rect key="frame" x="0.0" y="-41.666666666666664" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="zps-FG-8dp">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -67,21 +67,34 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="KtV-aM-Bas"/>
                                 </connections>
                             </collectionView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LgM-Xp-Lrj">
+                                <rect key="frame" x="0.0" y="278" width="393" height="574"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="JTU-Jc-bhL"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="PQ4-Nq-SZF"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="o6y-dy-3dI" secondAttribute="bottom" constant="669" id="3dQ-Fp-drZ"/>
+                            <constraint firstItem="LgM-Xp-Lrj" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="0wb-yd-pzD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="o6y-dy-3dI" secondAttribute="bottom" constant="670" id="3dQ-Fp-drZ"/>
+                            <constraint firstItem="LgM-Xp-Lrj" firstAttribute="top" secondItem="o6y-dy-3dI" secondAttribute="bottom" constant="130" id="3wQ-Ee-MvF"/>
+                            <constraint firstAttribute="bottom" secondItem="LgM-Xp-Lrj" secondAttribute="bottom" id="IfK-Dn-RMH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="o6y-dy-3dI" secondAttribute="trailing" id="Wv6-XQ-SBF"/>
                             <constraint firstItem="o6y-dy-3dI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="duR-LC-Hnf"/>
                             <constraint firstItem="jM5-QA-dJX" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="eg9-VN-yed"/>
                             <constraint firstItem="o6y-dy-3dI" firstAttribute="top" secondItem="jM5-QA-dJX" secondAttribute="bottom" id="ljl-pd-Nzt"/>
                             <constraint firstItem="jM5-QA-dJX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ooa-Pt-Hpw"/>
                             <constraint firstItem="jM5-QA-dJX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sUn-II-NFf"/>
+                            <constraint firstItem="LgM-Xp-Lrj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xGO-Lc-HOR"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="o6y-dy-3dI" id="Xeb-mz-sji"/>
+                        <outlet property="tableView" destination="LgM-Xp-Lrj" id="1DE-xn-Tpx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

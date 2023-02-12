@@ -9,9 +9,12 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var gearDataList: [GearDataModel] = []
+    
     var pageTabItemsWidth: CGFloat = 0.0
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var tableView: UITableView!
     
     // カテゴリ分け
     enum GearType: CaseIterable {
@@ -27,12 +30,20 @@ class ViewController: UIViewController {
     // enumを配列に変換
     let allCases: [GearType] = GearType.allCases
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // セルを登録する
         collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CustomCell")
+        setGearData()
     }
+    
+    func setGearData() {
+        for i in 1...5 {
+            let gearDataModel = GearDataModel(maker: "zanearts", name: "GIGI1", amount: 45000, weight: 4.5, date: Date(), category: "TENT&TARP", photo: <#URL#>)
+            gearDataList.append(gearDataModel)
+        }
+    }
+    
 }
 
 
@@ -67,4 +78,22 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         }
     }
     
+}
+
+
+extension ViewController: UITableViewDataSource {
+    // UITableViewに表示するリストの数
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return gearDataList.count
+    }
+    
+    // UITableViewに表示するリストの中身
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        let gearDataModel: GearDataModel = gearDataList[indexPath.row]
+        cell.textLabel?.text = gearDataModel.maker
+        cell.textLabel?.text = gearDataModel.name
+
+        return UITableViewCell()
+    }
 }

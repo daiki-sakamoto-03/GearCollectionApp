@@ -11,6 +11,7 @@
 		30F5A4D2D5931DE1C8C50322 /* Pods_GearCollectionApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A92AE29DAD98A566632868 /* Pods_GearCollectionApp.framework */; };
 		523E8E132997909B00BC6C15 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523E8E112997909B00BC6C15 /* CollectionViewCell.swift */; };
 		523E8E142997909B00BC6C15 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 523E8E122997909B00BC6C15 /* CollectionViewCell.xib */; };
+		523E8E182999035700BC6C15 /* GearDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523E8E172999035700BC6C15 /* GearDataModel.swift */; };
 		5258BABF2993C05A00814796 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258BABE2993C05A00814796 /* AppDelegate.swift */; };
 		5258BAC12993C05A00814796 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258BAC02993C05A00814796 /* SceneDelegate.swift */; };
 		5258BAC32993C05A00814796 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258BAC22993C05A00814796 /* ViewController.swift */; };
@@ -45,6 +46,7 @@
 		269C8380CC2741CEF78946BB /* Pods-GearCollectionAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GearCollectionAppTests.debug.xcconfig"; path = "Target Support Files/Pods-GearCollectionAppTests/Pods-GearCollectionAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		523E8E112997909B00BC6C15 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		523E8E122997909B00BC6C15 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		523E8E172999035700BC6C15 /* GearDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearDataModel.swift; sourceTree = "<group>"; };
 		5258BABB2993C05A00814796 /* GearCollectionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GearCollectionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5258BABE2993C05A00814796 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5258BAC02993C05A00814796 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				5258BAC72993C05B00814796 /* Assets.xcassets */,
 				5258BAC92993C05B00814796 /* LaunchScreen.storyboard */,
 				5258BACC2993C05B00814796 /* Info.plist */,
+				523E8E172999035700BC6C15 /* GearDataModel.swift */,
 			);
 			path = GearCollectionApp;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				5258BABF2993C05A00814796 /* AppDelegate.swift in Sources */,
 				523E8E132997909B00BC6C15 /* CollectionViewCell.swift in Sources */,
 				5258BAC12993C05A00814796 /* SceneDelegate.swift in Sources */,
+				523E8E182999035700BC6C15 /* GearDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
