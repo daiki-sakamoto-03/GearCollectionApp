@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     var gearDataList: [GearDataModel] = []
+    var gearType: [GearType] = []
     
     var pageTabItemsWidth: CGFloat = 0.0
     
@@ -17,32 +18,29 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // カテゴリ分け
-    enum GearType: CaseIterable {
-        case all
-        case tentAndTarp
-        case tableAndChair
-        case fire
-        case kitchenAndTablewear
-        case sleeping
-        case other
+    enum GearType: String {
+        case all = "ALL"
+        case tentAndTarp = "TENT & TARP"
+        case tableAndChair = "TABLE & CHAIR"
+        case fire = "FIRE"
+        case kitchenAndTablewear = "KITCHEN & TABLEWEAR"
+        case sleeping = "SLEEPING"
+        case other = "OTHER"
     }
-    
-    // enumを配列に変換
-    let allCases: [GearType] = GearType.allCases
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // セルを登録する
         collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CustomCell")
-        setGearData()
     }
     
-    func setGearData() {
+    func detGearData() {
         for i in 1...5 {
-            let gearDataModel = GearDataModel(maker: "zanearts", name: "GIGI1", amount: 45000, weight: 4.5, date: Date(), category: "TENT&TARP", photo: <#URL#>)
+            let gearDataModel = GearDataModel(photo: <#T##URL#>)
             gearDataList.append(gearDataModel)
         }
     }
+
     
 }
 
@@ -56,14 +54,13 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     // セルの数
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return GearType.allCases.count * 3 // 表示したい要素数の3倍を返す
+        return 7 * 3 // 表示したい要素数の3倍を返す
     }
     
     
     // セルの設定を行う為のメソッド
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CollectionViewCell
-        
         return cell
     }
     
@@ -81,6 +78,9 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 }
 
 
+
+
+
 extension ViewController: UITableViewDataSource {
     // UITableViewに表示するリストの数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -94,6 +94,6 @@ extension ViewController: UITableViewDataSource {
         cell.textLabel?.text = gearDataModel.maker
         cell.textLabel?.text = gearDataModel.name
 
-        return UITableViewCell()
+        return cell
     }
 }
