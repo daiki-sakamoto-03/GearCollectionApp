@@ -10,23 +10,14 @@ import UIKit
 class ViewController: UIViewController {
     
     var gearDataList: [GearDataModel] = []
-    var gearType: [GearType] = []
+    var gearType: [GearTypeModel] = []
     
     var pageTabItemsWidth: CGFloat = 0.0
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
     
-    // カテゴリ分け
-    enum GearType: String {
-        case all = "ALL"
-        case tentAndTarp = "TENT & TARP"
-        case tableAndChair = "TABLE & CHAIR"
-        case fire = "FIRE"
-        case kitchenAndTablewear = "KITCHEN & TABLEWEAR"
-        case sleeping = "SLEEPING"
-        case other = "OTHER"
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +25,8 @@ class ViewController: UIViewController {
         collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CustomCell")
     }
     
-    func detGearData() {
+    func setGearData() {
         for i in 1...5 {
-            let gearDataModel = GearDataModel(photo: <#T##URL#>)
-            gearDataList.append(gearDataModel)
         }
     }
 
@@ -61,6 +50,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     // セルの設定を行う為のメソッド
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CollectionViewCell
+        
         return cell
     }
     

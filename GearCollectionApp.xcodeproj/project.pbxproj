@@ -21,6 +21,7 @@
 		5258BAD62993C05B00814796 /* GearCollectionAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258BAD52993C05B00814796 /* GearCollectionAppTests.swift */; };
 		5258BAE02993C05B00814796 /* GearCollectionAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258BADF2993C05B00814796 /* GearCollectionAppUITests.swift */; };
 		5258BAE22993C05B00814796 /* GearCollectionAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258BAE12993C05B00814796 /* GearCollectionAppUITestsLaunchTests.swift */; };
+		52C0E1A7299BBA9800503EF4 /* GearTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1A6299BBA9800503EF4 /* GearTypeModel.swift */; };
 		8DA54EF818685379A91037AC /* Pods_GearCollectionAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1919560782DADAC9C9A14D01 /* Pods_GearCollectionAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		5258BADB2993C05B00814796 /* GearCollectionAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GearCollectionAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5258BADF2993C05B00814796 /* GearCollectionAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearCollectionAppUITests.swift; sourceTree = "<group>"; };
 		5258BAE12993C05B00814796 /* GearCollectionAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearCollectionAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		52C0E1A6299BBA9800503EF4 /* GearTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearTypeModel.swift; sourceTree = "<group>"; };
 		70B4CC14D66D1A43515DB736 /* Pods_GearCollectionApp_GearCollectionAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GearCollectionApp_GearCollectionAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A92AE29DAD98A566632868 /* Pods_GearCollectionApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GearCollectionApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EBDB57B207869E088EECF10 /* Pods-GearCollectionApp-GearCollectionAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GearCollectionApp-GearCollectionAppUITests.release.xcconfig"; path = "Target Support Files/Pods-GearCollectionApp-GearCollectionAppUITests/Pods-GearCollectionApp-GearCollectionAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				5258BAC92993C05B00814796 /* LaunchScreen.storyboard */,
 				5258BACC2993C05B00814796 /* Info.plist */,
 				523E8E172999035700BC6C15 /* GearDataModel.swift */,
+				52C0E1A6299BBA9800503EF4 /* GearTypeModel.swift */,
 			);
 			path = GearCollectionApp;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52C0E1A7299BBA9800503EF4 /* GearTypeModel.swift in Sources */,
 				5258BAC32993C05A00814796 /* ViewController.swift in Sources */,
 				5258BABF2993C05A00814796 /* AppDelegate.swift in Sources */,
 				523E8E132997909B00BC6C15 /* CollectionViewCell.swift in Sources */,

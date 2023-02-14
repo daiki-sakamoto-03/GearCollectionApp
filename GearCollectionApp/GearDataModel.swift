@@ -14,5 +14,4 @@ struct GearDataModel {
     var weight: Double = 0.0
     var date: Date = Date()
     var category: String = ""
-    var photo: URL = ""
 }
