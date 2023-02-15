@@ -10,12 +10,13 @@ import UIKit
 class ViewController: UIViewController {
     
     var gearDataList: [GearDataModel] = []
-    var gearType: [GearTypeModel] = []
-    
     var pageTabItemsWidth: CGFloat = 0.0
+    
+    let collectionViewCell = CollectionViewCell()
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
+    
     
 
     
@@ -24,13 +25,7 @@ class ViewController: UIViewController {
         // セルを登録する
         collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CustomCell")
     }
-    
-    func setGearData() {
-        for i in 1...5 {
-        }
-    }
 
-    
 }
 
 
@@ -50,7 +45,9 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     // セルの設定を行う為のメソッド
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CollectionViewCell
-        
+        var gearType: [String] = []
+        GearTypeModel.allCases.forEach { GearTypeModel in
+        gearType.append(GearTypeModel.rawValue) }
         return cell
     }
     
@@ -66,8 +63,6 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
 }
-
-
 
 
 

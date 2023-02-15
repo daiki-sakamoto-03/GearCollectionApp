@@ -9,7 +9,7 @@ import Foundation
 
 
 // カテゴリ分け
-enum GearTypeModel: String {
+enum GearTypeModel: String, CaseIterable {
     case all = "ALL"
     case tentAndTarp = "TENT & TARP"
     case tableAndChair = "TABLE & CHAIR"
@@ -17,16 +17,4 @@ enum GearTypeModel: String {
     case kitchenAndTablewear = "KITCHEN & TABLEWEAR"
     case sleeping = "SLEEPING"
     case other = "OTHER"
-    
 }
-
-enum cellCount: Int {
-    case firstCell = 0
-    case secondCell = 1
-    case thirdCell = 2
-    case fourthCell = 3
-    case fifthCell = 4
-    case sixthCell = 5
-    case seventhCell = 6
-}
-
