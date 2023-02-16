@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 // カテゴリ分け
 enum GearTypeModel: String, CaseIterable {
     case all = "ALL"

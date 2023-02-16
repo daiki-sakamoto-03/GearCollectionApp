@@ -10,6 +10,8 @@ import UIKit
 class ViewController: UIViewController {
     
     var gearDataList: [GearDataModel] = []
+    var gearType: [String] = []
+
     var pageTabItemsWidth: CGFloat = 0.0
     
     let collectionViewCell = CollectionViewCell()
@@ -24,6 +26,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // セルを登録する
         collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CustomCell")
+        GearTypeModel.allCases.forEach { GearTypeModel in
+            gearType.append(GearTypeModel.rawValue)
+        }
     }
 
 }
@@ -38,29 +43,18 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     // セルの数
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7 * 3 // 表示したい要素数の3倍を返す
+        return gearType.count // 表示したい要素数
     }
     
     
     // セルの設定を行う為のメソッド
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CollectionViewCell
-        var gearType: [String] = []
-        GearTypeModel.allCases.forEach { GearTypeModel in
-        gearType.append(GearTypeModel.rawValue) }
+        cell.label?.text = gearType[indexPath.row]
         return cell
     }
     
-    // 無限に横スクロール　（表示したい要素数の3倍を用意して、一定のスクロールを行うと中央に戻る）
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if pageTabItemsWidth == 0.0 {
-            pageTabItemsWidth = floor(scrollView.contentSize.width / 3.0)
-        }
-        
-        if (scrollView.contentOffset.x <= 0.0) || (scrollView.contentOffset.x > pageTabItemsWidth * 2.0) {
-            scrollView.contentOffset.x = pageTabItemsWidth
-        }
-    }
+
     
 }
 
