@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import XLPagerTabStrip
 
-class ViewController: UIViewController {
+class ViewController: ButtonBarPagerTabStripViewController {
     
     var gearDataList: [GearDataModel] = []
     var gearType: [String] = []
@@ -25,54 +26,30 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // セルを登録する
-        collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CustomCell")
-        GearTypeModel.allCases.forEach { GearTypeModel in
-            gearType.append(GearTypeModel.rawValue)
-        }
-    }
-
-}
-
-
-// セルを表示させる
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        // バーの色
+        settings.style.buttonBarBackgroundColor = UIColor(red: 73/255, green: 72/255, blue: 62/255, alpha: 1)
+        //ボタンの色
+        settings.style.buttonBarItemBackgroundColor = UIColor(red: 73/255, green: 72/255, blue: 62/255, alpha: 1)
+        //セルの文字色
+        settings.style.buttonBarItemTitleColor = UIColor.white
+        //セレクトバーの色
+        settings.style.selectedBarBackgroundColor = UIColor(red: 254/255, green: 0, blue: 124/255, alpha: 1)
+        
     }
     
-    // セルの数
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return gearType.count // 表示したい要素数
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
-    
-    
-    // セルの設定を行う為のメソッド
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CollectionViewCell
-        cell.label?.text = gearType[indexPath.row]
-        return cell
-    }
-    
 
-    
+    override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
+        //管理されるViewControllerを返す処理
+        let allVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "All")
+        let tentandtarpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TentAndTarp")
+        let childViewControllers:[UIViewController] = [allVC, tentandtarpVC ]
+        return childViewControllers
+    }
+
 }
 
-
-
-extension ViewController: UITableViewDataSource {
-    // UITableViewに表示するリストの数
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return gearDataList.count
-    }
-    
-    // UITableViewに表示するリストの中身
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        let gearDataModel: GearDataModel = gearDataList[indexPath.row]
-        cell.textLabel?.text = gearDataModel.maker
-        cell.textLabel?.text = gearDataModel.name
-
-        return cell
-    }
-}
