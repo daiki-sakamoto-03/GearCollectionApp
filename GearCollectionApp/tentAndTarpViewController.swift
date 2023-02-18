@@ -19,7 +19,7 @@ class tentAndTarpViewController: UIViewController, IndicatorInfoProvider {
     }
     
     func indicatorInfo(for pagerTabStripController: XLPagerTabStrip.PagerTabStripViewController) -> XLPagerTabStrip.IndicatorInfo {
-        return "tentAndTarp"
+        return "TENT & TARP"
     }
     
     

@@ -46,8 +46,20 @@ class ViewController: ButtonBarPagerTabStripViewController {
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         //管理されるViewControllerを返す処理
         let allVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "All")
-        let tentandtarpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TentAndTarp")
-        let childViewControllers:[UIViewController] = [allVC, tentandtarpVC ]
+        let tentAndTarpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TentAndTarp")
+        let tableAndChairVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TableAndChair")
+        let fireVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Fire")
+        let kitchenAndTablewearVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "KitchenAndTablewear")
+        let sleepingVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Sleeping")
+        let otherVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Other")
+
+        let childViewControllers:[UIViewController] = [allVC,
+                                                       tentAndTarpVC,
+                                                       tableAndChairVC,
+                                                       fireVC,
+                                                       kitchenAndTablewearVC,
+                                                       sleepingVC,
+                                                       otherVC ]
         return childViewControllers
     }
 
