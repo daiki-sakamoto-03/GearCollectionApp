@@ -1,5 +1,5 @@
 //
-//  sleepingViewController.swift
+//  otherViewController.swift
 //  GearCollectionApp
 //
 //  Created by 坂本　大貴 on 2023/02/18.
@@ -8,7 +8,7 @@
 import UIKit
 import XLPagerTabStrip
 
-class sleepingViewController: UIViewController, IndicatorInfoProvider {
+class OtherViewController: UIViewController, IndicatorInfoProvider {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,7 @@ class sleepingViewController: UIViewController, IndicatorInfoProvider {
     }
     
     func indicatorInfo(for pagerTabStripController: XLPagerTabStrip.PagerTabStripViewController) -> XLPagerTabStrip.IndicatorInfo {
-        return "SLEEPING"
+        return "OTHER"
     }
     
     

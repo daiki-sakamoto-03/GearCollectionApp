@@ -22,13 +22,13 @@
 		5258BAE02993C05B00814796 /* GearCollectionAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258BADF2993C05B00814796 /* GearCollectionAppUITests.swift */; };
 		5258BAE22993C05B00814796 /* GearCollectionAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258BAE12993C05B00814796 /* GearCollectionAppUITestsLaunchTests.swift */; };
 		52C0E1A7299BBA9800503EF4 /* GearTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1A6299BBA9800503EF4 /* GearTypeModel.swift */; };
-		52C0E1A9299FA80C00503EF4 /* allViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1A8299FA80C00503EF4 /* allViewController.swift */; };
-		52C0E1AB299FA8AE00503EF4 /* tentAndTarpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1AA299FA8AE00503EF4 /* tentAndTarpViewController.swift */; };
-		52C0E1AE29A10A8700503EF4 /* tableAndChairViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1AD29A10A8700503EF4 /* tableAndChairViewController.swift */; };
-		52C0E1B029A10AA200503EF4 /* fireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1AF29A10AA200503EF4 /* fireViewController.swift */; };
-		52C0E1B229A10AD200503EF4 /* kitchenAndTablewearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1B129A10AD200503EF4 /* kitchenAndTablewearViewController.swift */; };
-		52C0E1B429A10AEB00503EF4 /* sleepingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1B329A10AEB00503EF4 /* sleepingViewController.swift */; };
-		52C0E1B629A10B0200503EF4 /* otherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1B529A10B0200503EF4 /* otherViewController.swift */; };
+		52C0E1A9299FA80C00503EF4 /* AllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1A8299FA80C00503EF4 /* AllViewController.swift */; };
+		52C0E1AB299FA8AE00503EF4 /* TentAndTarpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1AA299FA8AE00503EF4 /* TentAndTarpViewController.swift */; };
+		52C0E1AE29A10A8700503EF4 /* TableAndChairViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1AD29A10A8700503EF4 /* TableAndChairViewController.swift */; };
+		52C0E1B029A10AA200503EF4 /* FireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1AF29A10AA200503EF4 /* FireViewController.swift */; };
+		52C0E1B229A10AD200503EF4 /* KitchenAndTablewearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1B129A10AD200503EF4 /* KitchenAndTablewearViewController.swift */; };
+		52C0E1B429A10AEB00503EF4 /* SleepingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1B329A10AEB00503EF4 /* SleepingViewController.swift */; };
+		52C0E1B629A10B0200503EF4 /* OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1B529A10B0200503EF4 /* OtherViewController.swift */; };
 		8DA54EF818685379A91037AC /* Pods_GearCollectionAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1919560782DADAC9C9A14D01 /* Pods_GearCollectionAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,13 +69,13 @@
 		5258BADF2993C05B00814796 /* GearCollectionAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearCollectionAppUITests.swift; sourceTree = "<group>"; };
 		5258BAE12993C05B00814796 /* GearCollectionAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearCollectionAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		52C0E1A6299BBA9800503EF4 /* GearTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearTypeModel.swift; sourceTree = "<group>"; };
-		52C0E1A8299FA80C00503EF4 /* allViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = allViewController.swift; sourceTree = "<group>"; };
-		52C0E1AA299FA8AE00503EF4 /* tentAndTarpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tentAndTarpViewController.swift; sourceTree = "<group>"; };
-		52C0E1AD29A10A8700503EF4 /* tableAndChairViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableAndChairViewController.swift; sourceTree = "<group>"; };
-		52C0E1AF29A10AA200503EF4 /* fireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fireViewController.swift; sourceTree = "<group>"; };
-		52C0E1B129A10AD200503EF4 /* kitchenAndTablewearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kitchenAndTablewearViewController.swift; sourceTree = "<group>"; };
-		52C0E1B329A10AEB00503EF4 /* sleepingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sleepingViewController.swift; sourceTree = "<group>"; };
-		52C0E1B529A10B0200503EF4 /* otherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = otherViewController.swift; sourceTree = "<group>"; };
+		52C0E1A8299FA80C00503EF4 /* AllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllViewController.swift; sourceTree = "<group>"; };
+		52C0E1AA299FA8AE00503EF4 /* TentAndTarpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TentAndTarpViewController.swift; sourceTree = "<group>"; };
+		52C0E1AD29A10A8700503EF4 /* TableAndChairViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableAndChairViewController.swift; sourceTree = "<group>"; };
+		52C0E1AF29A10AA200503EF4 /* FireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireViewController.swift; sourceTree = "<group>"; };
+		52C0E1B129A10AD200503EF4 /* KitchenAndTablewearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenAndTablewearViewController.swift; sourceTree = "<group>"; };
+		52C0E1B329A10AEB00503EF4 /* SleepingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepingViewController.swift; sourceTree = "<group>"; };
+		52C0E1B529A10B0200503EF4 /* OtherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViewController.swift; sourceTree = "<group>"; };
 		70B4CC14D66D1A43515DB736 /* Pods_GearCollectionApp_GearCollectionAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GearCollectionApp_GearCollectionAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A92AE29DAD98A566632868 /* Pods_GearCollectionApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GearCollectionApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EBDB57B207869E088EECF10 /* Pods-GearCollectionApp-GearCollectionAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GearCollectionApp-GearCollectionAppUITests.release.xcconfig"; path = "Target Support Files/Pods-GearCollectionApp-GearCollectionAppUITests/Pods-GearCollectionApp-GearCollectionAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -164,13 +164,13 @@
 				5258BABE2993C05A00814796 /* AppDelegate.swift */,
 				5258BAC02993C05A00814796 /* SceneDelegate.swift */,
 				5258BAC22993C05A00814796 /* ViewController.swift */,
-				52C0E1A8299FA80C00503EF4 /* allViewController.swift */,
-				52C0E1AA299FA8AE00503EF4 /* tentAndTarpViewController.swift */,
-				52C0E1AD29A10A8700503EF4 /* tableAndChairViewController.swift */,
-				52C0E1AF29A10AA200503EF4 /* fireViewController.swift */,
-				52C0E1B129A10AD200503EF4 /* kitchenAndTablewearViewController.swift */,
-				52C0E1B329A10AEB00503EF4 /* sleepingViewController.swift */,
-				52C0E1B529A10B0200503EF4 /* otherViewController.swift */,
+				52C0E1A8299FA80C00503EF4 /* AllViewController.swift */,
+				52C0E1AA299FA8AE00503EF4 /* TentAndTarpViewController.swift */,
+				52C0E1AD29A10A8700503EF4 /* TableAndChairViewController.swift */,
+				52C0E1AF29A10AA200503EF4 /* FireViewController.swift */,
+				52C0E1B129A10AD200503EF4 /* KitchenAndTablewearViewController.swift */,
+				52C0E1B329A10AEB00503EF4 /* SleepingViewController.swift */,
+				52C0E1B529A10B0200503EF4 /* OtherViewController.swift */,
 				523E8E112997909B00BC6C15 /* CollectionViewCell.swift */,
 				523E8E122997909B00BC6C15 /* CollectionViewCell.xib */,
 				5258BAC42993C05A00814796 /* Main.storyboard */,
@@ -440,18 +440,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52C0E1B029A10AA200503EF4 /* fireViewController.swift in Sources */,
-				52C0E1B629A10B0200503EF4 /* otherViewController.swift in Sources */,
-				52C0E1B429A10AEB00503EF4 /* sleepingViewController.swift in Sources */,
-				52C0E1A9299FA80C00503EF4 /* allViewController.swift in Sources */,
+				52C0E1B029A10AA200503EF4 /* FireViewController.swift in Sources */,
+				52C0E1B629A10B0200503EF4 /* OtherViewController.swift in Sources */,
+				52C0E1B429A10AEB00503EF4 /* SleepingViewController.swift in Sources */,
+				52C0E1A9299FA80C00503EF4 /* AllViewController.swift in Sources */,
 				52C0E1A7299BBA9800503EF4 /* GearTypeModel.swift in Sources */,
 				5258BAC32993C05A00814796 /* ViewController.swift in Sources */,
 				5258BABF2993C05A00814796 /* AppDelegate.swift in Sources */,
 				523E8E132997909B00BC6C15 /* CollectionViewCell.swift in Sources */,
 				5258BAC12993C05A00814796 /* SceneDelegate.swift in Sources */,
-				52C0E1AB299FA8AE00503EF4 /* tentAndTarpViewController.swift in Sources */,
-				52C0E1AE29A10A8700503EF4 /* tableAndChairViewController.swift in Sources */,
-				52C0E1B229A10AD200503EF4 /* kitchenAndTablewearViewController.swift in Sources */,
+				52C0E1AB299FA8AE00503EF4 /* TentAndTarpViewController.swift in Sources */,
+				52C0E1AE29A10A8700503EF4 /* TableAndChairViewController.swift in Sources */,
+				52C0E1B229A10AD200503EF4 /* KitchenAndTablewearViewController.swift in Sources */,
 				523E8E182999035700BC6C15 /* GearDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

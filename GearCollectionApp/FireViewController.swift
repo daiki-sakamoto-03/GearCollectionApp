@@ -1,5 +1,5 @@
 //
-//  tableAndChairViewController.swift
+//  fireViewController.swift
 //  GearCollectionApp
 //
 //  Created by 坂本　大貴 on 2023/02/18.
@@ -8,7 +8,7 @@
 import UIKit
 import XLPagerTabStrip
 
-class tableAndChairViewController: UIViewController, IndicatorInfoProvider {
+class FireViewController: UIViewController, IndicatorInfoProvider {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,7 @@ class tableAndChairViewController: UIViewController, IndicatorInfoProvider {
     }
     
     func indicatorInfo(for pagerTabStripController: XLPagerTabStrip.PagerTabStripViewController) -> XLPagerTabStrip.IndicatorInfo {
-        return "TABLE & CHAIR"
+        return "FIRE"
     }
     
     

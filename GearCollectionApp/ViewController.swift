@@ -16,15 +16,18 @@ class ViewController: ButtonBarPagerTabStripViewController {
     var pageTabItemsWidth: CGFloat = 0.0
     
     let collectionViewCell = CollectionViewCell()
+    var addButtonItem = UIBarButtonItem()
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
     
-    
-
-    
+    // ギア追加ボタン
+    @IBAction func addButton(_ sender: Any) {
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // セルを登録する
         
         // バーの色
@@ -62,6 +65,5 @@ class ViewController: ButtonBarPagerTabStripViewController {
                                                        otherVC ]
         return childViewControllers
     }
-
 }
 
