@@ -10,9 +10,6 @@ import XLPagerTabStrip
 
 class ViewController: ButtonBarPagerTabStripViewController {
     
-    var gearDataList: [GearDataModel] = []
-    var gearType: [String] = []
-
     var pageTabItemsWidth: CGFloat = 0.0
     
     let collectionViewCell = CollectionViewCell()
