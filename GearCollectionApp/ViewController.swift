@@ -24,8 +24,6 @@ class ViewController: ButtonBarPagerTabStripViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // セルを登録する
         
         // バーの色
         settings.style.buttonBarBackgroundColor = UIColor(red: 73/255, green: 72/255, blue: 62/255, alpha: 1)

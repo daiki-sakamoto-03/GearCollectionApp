@@ -15,12 +15,15 @@ class AllViewController: UIViewController, IndicatorInfoProvider {
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
     
+    
     var gearDataList: [GearDataModel] = []
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        allTableView.register(UINib(nibName: "AllTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
+        allTableView.rowHeight = 100 // tableViewの高さを100で固定
         setGearData()
     }
     
@@ -43,18 +46,18 @@ class AllViewController: UIViewController, IndicatorInfoProvider {
 
 // 登録したギアを表示するUITableViewのクラス
 extension AllViewController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return gearDataList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        // indexPath.row → UITableViewに表示されるCellの（０から始まる）通り番号が順番に渡される
-        let gearDataModel: GearDataModel = gearDataList[indexPath.row]
-        cell.textLabel?.text = gearDataModel.maker
-        cell.textLabel?.text = gearDataModel.name
-        
-        return UITableViewCell()
+        let cell = allTableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! AllTableViewCell
+        cell.makerLabel?.text = "ZANEARTS"
+        cell.nameLabel?.text = "GIGI1"
+        cell.amountLabel?.text = "50,000"
+        cell.weightLabel?.text = "4.5kg"
+        return cell
     }
     
     
