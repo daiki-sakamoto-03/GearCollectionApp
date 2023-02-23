@@ -53,6 +53,11 @@ extension AllViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = allTableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! AllTableViewCell
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let gearDetailViewController = storyboard.instantiateViewController(identifier: "GearDetail") as! GearDetailViewController
+        let gearData = gearDataList[indexPath.row]
+        gearDetailViewController.configure(gear: gearData)
+        
         cell.makerLabel?.text = "ZANEARTS"
         cell.nameLabel?.text = "GIGI1"
         cell.amountLabel?.text = "50,000"

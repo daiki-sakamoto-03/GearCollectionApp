@@ -31,6 +31,7 @@
 		52C0E1B629A10B0200503EF4 /* OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1B529A10B0200503EF4 /* OtherViewController.swift */; };
 		52C0E1BF29A4E8C100503EF4 /* AllTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1BD29A4E8C100503EF4 /* AllTableViewCell.swift */; };
 		52C0E1C029A4E8C100503EF4 /* AllTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52C0E1BE29A4E8C100503EF4 /* AllTableViewCell.xib */; };
+		52C0E1C229A6FF1300503EF4 /* GearDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1C129A6FF1300503EF4 /* GearDetailViewController.swift */; };
 		8DA54EF818685379A91037AC /* Pods_GearCollectionAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1919560782DADAC9C9A14D01 /* Pods_GearCollectionAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		52C0E1B529A10B0200503EF4 /* OtherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViewController.swift; sourceTree = "<group>"; };
 		52C0E1BD29A4E8C100503EF4 /* AllTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTableViewCell.swift; sourceTree = "<group>"; };
 		52C0E1BE29A4E8C100503EF4 /* AllTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllTableViewCell.xib; sourceTree = "<group>"; };
+		52C0E1C129A6FF1300503EF4 /* GearDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearDetailViewController.swift; sourceTree = "<group>"; };
 		70B4CC14D66D1A43515DB736 /* Pods_GearCollectionApp_GearCollectionAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GearCollectionApp_GearCollectionAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A92AE29DAD98A566632868 /* Pods_GearCollectionApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GearCollectionApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EBDB57B207869E088EECF10 /* Pods-GearCollectionApp-GearCollectionAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GearCollectionApp-GearCollectionAppUITests.release.xcconfig"; path = "Target Support Files/Pods-GearCollectionApp-GearCollectionAppUITests/Pods-GearCollectionApp-GearCollectionAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				52C0E1B129A10AD200503EF4 /* KitchenAndTablewearViewController.swift */,
 				52C0E1B329A10AEB00503EF4 /* SleepingViewController.swift */,
 				52C0E1B529A10B0200503EF4 /* OtherViewController.swift */,
+				52C0E1C129A6FF1300503EF4 /* GearDetailViewController.swift */,
 			);
 			name = VC;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 			files = (
 				52C0E1B029A10AA200503EF4 /* FireViewController.swift in Sources */,
 				52C0E1B629A10B0200503EF4 /* OtherViewController.swift in Sources */,
+				52C0E1C229A6FF1300503EF4 /* GearDetailViewController.swift in Sources */,
 				52C0E1B429A10AEB00503EF4 /* SleepingViewController.swift in Sources */,
 				52C0E1BF29A4E8C100503EF4 /* AllTableViewCell.swift in Sources */,
 				52C0E1A9299FA80C00503EF4 /* AllViewController.swift in Sources */,

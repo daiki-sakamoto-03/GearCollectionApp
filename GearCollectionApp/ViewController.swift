@@ -9,7 +9,7 @@ import UIKit
 import XLPagerTabStrip
 
 class ViewController: ButtonBarPagerTabStripViewController {
-    
+        
     var pageTabItemsWidth: CGFloat = 0.0
     
     let collectionViewCell = CollectionViewCell()
@@ -61,4 +61,6 @@ class ViewController: ButtonBarPagerTabStripViewController {
         return childViewControllers
     }
 }
+
+
 
