@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import RealmSwift
 
-class GearDetailViewController: UIViewController {
+class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
     @IBOutlet weak var categoryText: UITextField!
     @IBOutlet weak var makerText: UITextField!
     @IBOutlet weak var nameText: UITextField!
@@ -15,10 +17,13 @@ class GearDetailViewController: UIViewController {
     @IBOutlet weak var weightText: UITextField!
     @IBOutlet weak var dateText: UITextField!
     
-    @IBAction func addButton(_ sender: Any) {
+    var record = GearRecord()
+    
+    @IBAction func addButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let gearDetailViewConntroller = storyboard.instantiateViewController(identifier: "GearDetail") as! GearDetailViewController
         navigationController?.pushViewController(gearDetailViewConntroller, animated: true)
+        saveRecord()
     }
     
     @objc func didTapDone() {
@@ -66,6 +71,10 @@ class GearDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         displayData()
+        createPickerView()
+        let realm = try! Realm()
+        let firstRecord = realm.objects(GearRecord.self).first
+        print("👀firstRecord: \(String(describing: firstRecord))")
     }
     
     
@@ -84,7 +93,7 @@ class GearDetailViewController: UIViewController {
         makerText.text = maker
         nameText.text = name
         var toIntAmount: Int? = Int(amountText.text!)
-        var toIntWeight: Int? = Int(weightText.text!)
+        var toIntWeight: Double? = Double(weightText.text!)
         dateText.inputView = datePicker
         categoryText.inputAccessoryView = toolBar // 閉じるボタン
         makerText.inputAccessoryView = toolBar // 閉じるボタン
@@ -100,7 +109,73 @@ class GearDetailViewController: UIViewController {
         dateText.text = dateFormatter.string(from: picker.date)
     }
     
-}
+    // データをRealmに保存する処理
+    func saveRecord() {
+        let realm = try! Realm()
+        try! realm.write {
+            if let categoryText = categoryText.text,
+               let category = String?(categoryText) {
+                record.category = category
+            }
+            if let makerText = makerText.text,
+               let maker = String?(makerText) {
+                record.maker = maker
+            }
+            if let nameText = nameText.text,
+               let name = String?(nameText) {
+                record.name = name
+            }
+            if let amountText = amountText.text,
+               let amount = Int(amountText) {
+                record.amount = amount
+            }
+            if let weightText = weightText.text,
+               let weight = Double(weightText) {
+                record.weight = weight
+            }
+            if let dateText = dateText.text,
+               let date = dateFormatter.date(from: dateText) {
+                record.date = date
+            }
+            realm.add(record)
+        }
+        dismiss(animated: true) // 画面を閉じる画面
+    }
+    
+    // カテゴリ入力時に、PickerViewの設定
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categoryData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categoryData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        categoryText.text = categoryData[row]
+    }
+    var pickerView = UIPickerView()
+    var categoryData = ["TENT&TARP", "TABLE&CHAIR", "FIRE", "KITCHEN&TABLEWEAR", "SLEEPING", "OTHER"]
+    
+    
+    @objc func donePicker() {
+        categoryText.endEditing(true)
+    }
+    func createPickerView() {
+        pickerView.delegate = self
+        categoryText.inputView = pickerView
+        let toolBar = UIToolbar()
+        toolBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 44)
+        let doneButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(GearDetailViewController.donePicker))
+        toolBar.setItems([doneButtonItem], animated: true)
+    
+        }
+    }
+    
 
 
 

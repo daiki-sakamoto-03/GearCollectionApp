@@ -17,7 +17,7 @@ class GearRecord: Object {
     @objc dynamic var maker: String = ""
     @objc dynamic var name: String = ""
     @objc dynamic var amount: Int = 0
-    @objc dynamic var weight: Int = 0
+    @objc dynamic var weight: Double = 0.0
     @objc dynamic var date: Date = Date()
     
 }
