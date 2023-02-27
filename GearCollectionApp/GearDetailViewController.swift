@@ -73,7 +73,7 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
         displayData()
         createPickerView()
         let realm = try! Realm()
-        let firstRecord = realm.objects(GearRecord.self).first
+        let firstRecord = realm.objects(GearRecord.self)
         print("👀firstRecord: \(String(describing: firstRecord))")
     }
     
