@@ -45,18 +45,18 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
         datePicker.datePickerMode = .date
         datePicker.timeZone = .current // タイムゾーンを現在位置に設定
         datePicker.preferredDatePickerStyle = .wheels // ホイールスタイルのUIを指定
-        datePicker.locale = Locale(identifier: "ja-JP") // 日本のロケールを指定
+        datePicker.locale = Locale(identifier: "ja_JP") // 日本のロケールを指定
         datePicker.date = Date() // 現在の日付を代入
         datePicker.addTarget(self, action: #selector(didChangeDate), for: .valueChanged) // ピッカーの値が変更された際に、didChangeDateメソッドを実行
         return datePicker
     }
     
-    // 日付をUITextFieldに表示する
+    // 日付をUITextFieldに表示する（日付の値を文字列に変換）
     var dateFormatter: DateFormatter {
         let dateFormatt = DateFormatter()
         dateFormatt.dateStyle = .long
         dateFormatt.timeZone = .current
-        dateFormatt.locale = Locale(identifier: "ja-JP")
+        dateFormatt.locale = Locale(identifier: "ja_JP")
         return dateFormatt
     }
     
@@ -72,11 +72,81 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
         super.viewDidLoad()
         displayData()
         createPickerView()
+        configureDateTextField()
         let realm = try! Realm()
         let firstRecord = realm.objects(GearRecord.self)
         print("👀firstRecord: \(String(describing: firstRecord))")
+        // 他の場所をタップしたらキーボードが閉じる設定
+        let tapGR: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGR.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapGR)
+        NotificationCenter.default.addObserver(self, selector: #selector(namekeyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(amountkeyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(weightkeyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(datekeyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+
     }
     
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
+    // ギア名入力時、TextFieldにキーボードが被らないようにする
+    @objc func namekeyboardWillShow(notification: NSNotification) {
+        if !nameText.isFirstResponder {
+            return
+        }
+        
+        if self.view.frame.origin.y == 0 {
+            if let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                self.view.frame.origin.y -= keyboardRect.height
+            }
+        }
+    }
+    // 金額入力時、TextFieldにキーボードが被らないようにする
+    @objc func amountkeyboardWillShow(notification: NSNotification) {
+        if !amountText.isFirstResponder {
+            return
+        }
+        
+        if self.view.frame.origin.y == 0 {
+            if let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                self.view.frame.origin.y -= keyboardRect.height
+            }
+        }
+    }
+    // 重量入力時、TextFieldにキーボードが被らないようにする
+    @objc func weightkeyboardWillShow(notification: NSNotification) {
+        if !weightText.isFirstResponder {
+            return
+        }
+        
+        if self.view.frame.origin.y == 0 {
+            if let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                self.view.frame.origin.y -= keyboardRect.height
+            }
+        }
+    }
+    // 日付入力時、TextFieldにキーボードが被らないようにする
+    @objc func datekeyboardWillShow(notification: NSNotification) {
+        if !dateText.isFirstResponder {
+            return
+        }
+        
+        if self.view.frame.origin.y == 0 {
+            if let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                self.view.frame.origin.y -= keyboardRect.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
+
     
     func configure(gear: GearDataModel) {
         category = gear.category
@@ -95,12 +165,6 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
         var toIntAmount: Int? = Int(amountText.text!)
         var toIntWeight: Double? = Double(weightText.text!)
         dateText.inputView = datePicker
-        categoryText.inputAccessoryView = toolBar // 閉じるボタン
-        makerText.inputAccessoryView = toolBar // 閉じるボタン
-        nameText.inputAccessoryView = toolBar // 閉じるボタン
-        amountText.inputView = toolBar // 閉じるボタン
-        weightText.inputAccessoryView = toolBar // 閉じるボタン
-        dateText.inputAccessoryView = toolBar // 閉じるボタン
         dateText.text = dateFormatter.string(from: Date()) // datePickerで選択された日付をString型に変換
     }
     
@@ -139,7 +203,7 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
             }
             realm.add(record)
         }
-        dismiss(animated: true) // 画面を閉じる画面
+        dismiss(animated: true) // 画面を閉じる処理
     }
     
     // カテゴリ入力時に、PickerViewの設定
@@ -174,7 +238,14 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
         toolBar.setItems([doneButtonItem], animated: true)
     
         }
+    
+    func configureDateTextField() {
+        dateText.inputView = datePicker
+        dateText.inputAccessoryView = toolBar
+        dateText.text = dateFormatter.string(from: Date())
     }
+
+}
     
 
 
