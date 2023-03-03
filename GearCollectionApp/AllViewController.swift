@@ -7,6 +7,7 @@
 
 import UIKit
 import XLPagerTabStrip
+import RealmSwift
 
 class AllViewController: UIViewController, IndicatorInfoProvider {
     
@@ -57,11 +58,7 @@ extension AllViewController: UITableViewDataSource, UITableViewDelegate {
         let gearDetailViewController = storyboard.instantiateViewController(identifier: "GearDetail") as! GearDetailViewController
         let gearData = gearDataList[indexPath.row]
         gearDetailViewController.configure(gear: gearData)
-        
-        cell.makerLabel?.text = "ZANEARTS"
-        cell.nameLabel?.text = "GIGI1"
-        cell.amountLabel?.text = "50,000"
-        cell.weightLabel?.text = "4.5kg"
+
         return cell
     }
     

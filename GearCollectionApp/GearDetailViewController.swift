@@ -68,14 +68,16 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var weight: Double = 0.0
     var date: Date = Date()
     
+    var gearList: Results<GearRecord>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         displayData()
         createPickerView()
         configureDateTextField()
         let realm = try! Realm()
-        let firstRecord = realm.objects(GearRecord.self)
-        print("👀firstRecord: \(String(describing: firstRecord))")
+        gearList = realm.objects(GearRecord.self)
+        print("👀firstRecord: \(String(describing: gearList))")
         // 他の場所をタップしたらキーボードが閉じる設定
         let tapGR: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tapGR.cancelsTouchesInView = false
@@ -155,7 +157,6 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
         amount = gear.amount
         weight = gear.weight
         date = gear.date
-        print("データは\(category)、\(maker)、\(name)、\(amount)、\(weight)、\(date)です！")
     }
     
     func displayData() {
@@ -247,7 +248,6 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
 
 }
     
-
 
 
 

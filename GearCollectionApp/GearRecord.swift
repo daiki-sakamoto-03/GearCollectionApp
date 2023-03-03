@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 class GearRecord: Object {
-    override static func primaryKey() -> String? {
+    override static func primaryKey() -> String {
         return "id"
     }
     @objc dynamic var id: String = UUID().uuidString
