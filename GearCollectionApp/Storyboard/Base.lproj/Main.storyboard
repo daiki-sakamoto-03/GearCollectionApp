@@ -148,6 +148,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="addButton" destination="nNf-ga-CI6" id="HuG-ZL-MSo"/>
                         <outlet property="amountText" destination="7Oj-ts-IPY" id="7Ii-ra-pyx"/>
                         <outlet property="categoryText" destination="OUZ-LI-TJh" id="O7b-Jb-tna"/>
                         <outlet property="dateText" destination="Sgr-5w-8hS" id="bbG-en-p27"/>

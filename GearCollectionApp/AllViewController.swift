@@ -17,7 +17,7 @@ class AllViewController: UIViewController, IndicatorInfoProvider {
     @IBOutlet weak var weightLabel: UILabel!
     
     
-    var gearDataList: [GearDataModel] = []
+    var gearDataList: [GearRecord] = []
     
     
     
@@ -25,6 +25,9 @@ class AllViewController: UIViewController, IndicatorInfoProvider {
         super.viewDidLoad()
         allTableView.register(UINib(nibName: "AllTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
         allTableView.rowHeight = 100 // tableViewの高さを100で固定
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         setGearData()
     }
     
@@ -37,13 +40,12 @@ class AllViewController: UIViewController, IndicatorInfoProvider {
     }
     
     func setGearData() {
-        for i in 1...5 {
-            let gearDataModel = GearDataModel()
-            gearDataList.append(gearDataModel)
+        let realm = try! Realm()
+        let result = realm.objects(GearRecord.self)
+        gearDataList = Array(result)
         }
-    }
-    
 }
+    
 
 // 登録したギアを表示するUITableViewのクラス
 extension AllViewController: UITableViewDataSource, UITableViewDelegate {
@@ -54,12 +56,24 @@ extension AllViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = allTableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! AllTableViewCell
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let gearDetailViewController = storyboard.instantiateViewController(identifier: "GearDetail") as! GearDetailViewController
-        let gearData = gearDataList[indexPath.row]
-        gearDetailViewController.configure(gear: gearData)
-
+        let gearRecord: GearRecord = gearDataList[indexPath.row]
+        // 各UILabelに、Realmに保存された内容を代入する
+        cell.makerLabel.text = gearRecord.maker
+        cell.nameLabel.text = gearRecord.name
+        cell.amountLabel.text = "\(gearRecord.amount)"
+        cell.weightLabel.text = "\(gearRecord.weight)"
+        cell.dateLabel.text = "\(gearRecord.date)"
         return cell
+    }
+    // 削除機能追加
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let targetGear = gearDataList[indexPath.row]
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(targetGear)
+        }
+        gearDataList.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
     }
     
     

@@ -16,14 +16,27 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet weak var amountText: UITextField!
     @IBOutlet weak var weightText: UITextField!
     @IBOutlet weak var dateText: UITextField!
+    @IBOutlet weak var addButton: UIButton!
     
     var record = GearRecord()
+
     
     @IBAction func addButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let gearDetailViewConntroller = storyboard.instantiateViewController(identifier: "GearDetail") as! GearDetailViewController
         navigationController?.pushViewController(gearDetailViewConntroller, animated: true)
         saveRecord()
+        
+        if record.category.isEmpty {
+            print("カテゴリが選択されていません！")
+            addButton.isEnabled = false
+        } else if record.name.isEmpty {
+            print("ギア名が入力されていません！")
+            addButton.isEnabled = false
+        } else if record.category.isEmpty && record.name.isEmpty {
+            print("カテゴリ・ギア名が入力されていません！")
+            addButton.isEnabled = false
+        }
     }
     
     @objc func didTapDone() {
@@ -68,7 +81,7 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var weight: Double = 0.0
     var date: Date = Date()
     
-    var gearList: Results<GearRecord>!
+    var gearList: [GearRecord] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,9 +89,18 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
         createPickerView()
         configureDateTextField()
         let realm = try! Realm()
-        gearList = realm.objects(GearRecord.self)
+        let result = realm.objects(GearRecord.self)
+        gearList = Array(result)
+        closeKeyboard()
         print("👀firstRecord: \(String(describing: gearList))")
-        // 他の場所をタップしたらキーボードが閉じる設定
+    }
+    
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
+    
+    // 他の場所をタップしたらキーボードが閉じる設定
+    @objc func closeKeyboard() {
         let tapGR: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tapGR.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapGR)
@@ -87,12 +109,8 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
         NotificationCenter.default.addObserver(self, selector: #selector(weightkeyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(datekeyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-
     }
     
-    @objc func dismissKeyboard() {
-        self.view.endEditing(true)
-    }
     // ギア名入力時、TextFieldにキーボードが被らないようにする
     @objc func namekeyboardWillShow(notification: NSNotification) {
         if !nameText.isFirstResponder {
