@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var categoryText: UITextField!
     @IBOutlet weak var makerText: UITextField!
@@ -38,6 +38,19 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
             addButton.isEnabled = false
         }
     }
+    
+    // 写真を追加するボタン
+    @IBAction func photoButton(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            
+                let imagePickerController = UIImagePickerController()
+                imagePickerController.sourceType = .photoLibrary
+                imagePickerController.delegate = self
+                self.present(imagePickerController, animated: true, completion: nil)
+            
+        }
+    }
+    
     
     @objc func didTapDone() {
         view.endEditing(true)
