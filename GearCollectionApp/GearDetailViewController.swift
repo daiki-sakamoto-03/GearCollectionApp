@@ -10,6 +10,8 @@ import RealmSwift
 
 class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    
+    
     @IBOutlet weak var categoryText: UITextField!
     @IBOutlet weak var makerText: UITextField!
     @IBOutlet weak var nameText: UITextField!
@@ -17,6 +19,7 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet weak var weightText: UITextField!
     @IBOutlet weak var dateText: UITextField!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
     
     var record = GearRecord()
 
@@ -26,30 +29,51 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
         let gearDetailViewConntroller = storyboard.instantiateViewController(identifier: "GearDetail") as! GearDetailViewController
         navigationController?.pushViewController(gearDetailViewConntroller, animated: true)
         saveRecord()
-        
-        if record.category.isEmpty {
-            print("カテゴリが選択されていません！")
+    }
+    // カテゴリが未入力の場合、「登録する」ボタンを無効にする
+    @IBAction func categoryTextBtnInactive(_ sender: Any) {
+        if categoryText.text == "" {
             addButton.isEnabled = false
-        } else if record.name.isEmpty {
-            print("ギア名が入力されていません！")
-            addButton.isEnabled = false
-        } else if record.category.isEmpty && record.name.isEmpty {
-            print("カテゴリ・ギア名が入力されていません！")
-            addButton.isEnabled = false
+        } else {
+            addButton.isEnabled = true
         }
     }
+    // メーカーが未入力の場合、「登録する」ボタンを無効にする
+    @IBAction func makerTextBtnInactive(_ sender: Any) {
+        if makerText.text == "" {
+            addButton.isEnabled = false
+        } else {
+            addButton.isEnabled = true
+        }
+    }
+    // 名前が未入力の場合、「登録する」ボタンを無効にする
+    @IBAction func nameTextBtnInactive(_ sender: Any) {
+        if nameText.text == "" {
+            addButton.isEnabled = false
+        } else {
+            addButton.isEnabled = true
+        }
+    }
+    
+    
     
     // 写真を追加するボタン
     @IBAction func photoButton(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            
-                let imagePickerController = UIImagePickerController()
-                imagePickerController.sourceType = .photoLibrary
-                imagePickerController.delegate = self
-                self.present(imagePickerController, animated: true, completion: nil)
-            
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.sourceType = .photoLibrary
+            imagePickerController.delegate = self
+            self.present(imagePickerController, animated: true, completion: nil)
         }
     }
+    
+    let realm = try! Realm()
+    
+    // ドキュメントディレクトリの「ファイルURL」(URL型)定義
+    var documentDirectoryFileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    
+    // ドキュメントディレクトリの「パス」(String型)定義
+    let filePath = NSSearchPathForDirectoriesInDomains( .documentDirectory, .userDomainMask, true)[0]
     
     
     @objc func didTapDone() {
@@ -98,6 +122,7 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addButton.isEnabled = false
         displayData()
         createPickerView()
         configureDateTextField()
@@ -278,7 +303,5 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
 
 }
-    
-
 
 

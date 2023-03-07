@@ -95,22 +95,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="カテゴリ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OUZ-LI-TJh">
-                                <rect key="frame" x="59" y="345" width="274" height="34"/>
+                                <rect key="frame" x="59" y="346" width="274" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="categoryTextBtnInactive:" destination="El8-Hk-hWR" eventType="editingChanged" id="y4L-DY-357"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メーカー" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2KT-3X-V54">
                                 <rect key="frame" x="59" y="396" width="274" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="makerTextBtnInactive:" destination="El8-Hk-hWR" eventType="editingChanged" id="XeW-Ek-Dx6"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="名前" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xel-rX-Yso">
                                 <rect key="frame" x="59" y="448" width="274" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="nameTextBtnInactive:" destination="El8-Hk-hWR" eventType="editingChanged" id="xPJ-Cs-Psb"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="金額" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Oj-ts-IPY">
                                 <rect key="frame" x="59" y="504" width="274" height="34"/>
@@ -158,11 +167,12 @@
                     </view>
                     <connections>
                         <outlet property="addButton" destination="nNf-ga-CI6" id="HuG-ZL-MSo"/>
-                        <outlet property="amountText" destination="7Oj-ts-IPY" id="7Ii-ra-pyx"/>
-                        <outlet property="categoryText" destination="OUZ-LI-TJh" id="O7b-Jb-tna"/>
+                        <outlet property="amountText" destination="7Oj-ts-IPY" id="Fzd-RX-QQZ"/>
+                        <outlet property="categoryText" destination="OUZ-LI-TJh" id="all-xz-FvZ"/>
                         <outlet property="dateText" destination="Sgr-5w-8hS" id="bbG-en-p27"/>
-                        <outlet property="makerText" destination="2KT-3X-V54" id="o0e-9l-gTb"/>
-                        <outlet property="nameText" destination="Xel-rX-Yso" id="8rH-1I-Wx8"/>
+                        <outlet property="imageView" destination="9Xh-s2-NLe" id="PmD-hX-aQc"/>
+                        <outlet property="makerText" destination="2KT-3X-V54" id="dFH-mY-x26"/>
+                        <outlet property="nameText" destination="Xel-rX-Yso" id="pHG-lz-aez"/>
                         <outlet property="weightText" destination="Bha-ib-09H" id="oBD-P3-vUj"/>
                     </connections>
                 </viewController>
