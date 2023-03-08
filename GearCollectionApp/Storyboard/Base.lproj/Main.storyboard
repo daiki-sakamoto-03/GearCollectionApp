@@ -101,6 +101,7 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="categoryTextBtnInactive:" destination="El8-Hk-hWR" eventType="editingChanged" id="y4L-DY-357"/>
+                                    <outlet property="delegate" destination="El8-Hk-hWR" id="C4J-fT-D6T"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メーカー" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2KT-3X-V54">
@@ -110,6 +111,7 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="makerTextBtnInactive:" destination="El8-Hk-hWR" eventType="editingChanged" id="XeW-Ek-Dx6"/>
+                                    <outlet property="delegate" destination="El8-Hk-hWR" id="pOw-Mq-Psf"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="名前" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xel-rX-Yso">
@@ -119,6 +121,7 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="nameTextBtnInactive:" destination="El8-Hk-hWR" eventType="editingChanged" id="xPJ-Cs-Psb"/>
+                                    <outlet property="delegate" destination="El8-Hk-hWR" id="vtg-eW-YiT"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="金額" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Oj-ts-IPY">
@@ -126,18 +129,27 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="El8-Hk-hWR" id="d55-xR-Nnk"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="重量" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bha-ib-09H">
                                 <rect key="frame" x="59" y="556" width="274" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="El8-Hk-hWR" id="IFp-Zf-YtX"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="購入日" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sgr-5w-8hS">
                                 <rect key="frame" x="59" y="608" width="274" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="El8-Hk-hWR" id="fp0-pL-jLJ"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNf-ga-CI6">
                                 <rect key="frame" x="136" y="680" width="120" height="60"/>

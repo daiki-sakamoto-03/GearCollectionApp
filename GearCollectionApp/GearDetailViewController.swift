@@ -23,7 +23,7 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     var record = GearRecord()
 
-    
+    // 登録ボタン
     @IBAction func addButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let gearDetailViewConntroller = storyboard.instantiateViewController(identifier: "GearDetail") as! GearDetailViewController
@@ -55,7 +55,7 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }
     }
     
-    
+    let realm = try! Realm()
     
     // 写真を追加するボタン
     @IBAction func photoButton(_ sender: Any) {
@@ -65,15 +65,41 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
             imagePickerController.delegate = self
             self.present(imagePickerController, animated: true, completion: nil)
         }
+        let gearRecord = GearRecord()
+        do {
+            try gearRecord.image = documentDirectoryFileURL.absoluteString
+        } catch {
+            print("画像の保存に失敗しました。")
+        }
+        try! realm.write{realm.add(gearRecord)}
     }
     
-    let realm = try! Realm()
+    func createLocalDataFile() {
+        let fileName = "\(NSUUID().uuidString).png"
+        // DocumentディレクトリのfileURLを取得
+        if documentDirectoryFileURL != nil {
+            let path = documentDirectoryFileURL.appendingPathComponent(fileName)
+            documentDirectoryFileURL = path
+        }
+    }
     
-    // ドキュメントディレクトリの「ファイルURL」(URL型)定義
+    func saveImage() {
+        createLocalDataFile()
+        let pngImageData = imageView.image?.pngData()
+        do {
+            try pngImageData!.write(to: documentDirectoryFileURL)
+        } catch {
+            print("エラー")
+        }
+    }
+    
+        
+    // Documentsディレクトリのパス取得(画像データを保存する場所)
+    let DocumentsPath = NSHomeDirectory() + "/Documents"
+    // Documentディレクトリの「ファイルURL」(URL型)定義
     var documentDirectoryFileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-    
-    // ドキュメントディレクトリの「パス」(String型)定義
-    let filePath = NSSearchPathForDirectoriesInDomains( .documentDirectory, .userDomainMask, true)[0]
+    // Documentディレクトリの「パス」(String型)定義
+    let filePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
     
     
     @objc func didTapDone() {
