@@ -172,7 +172,6 @@
 				5258BABE2993C05A00814796 /* AppDelegate.swift */,
 				5258BAC02993C05A00814796 /* SceneDelegate.swift */,
 				52C0E1B829A3ABE400503EF4 /* VC */,
-				52C0E1BA29A3AC3E00503EF4 /* Cell */,
 				52C0E1BC29A3AC8A00503EF4 /* Storyboard */,
 				5258BAC72993C05B00814796 /* Assets.xcassets */,
 				5258BACC2993C05B00814796 /* Info.plist */,
@@ -212,6 +211,7 @@
 				52C0E1B329A10AEB00503EF4 /* SleepingViewController.swift */,
 				52C0E1B529A10B0200503EF4 /* OtherViewController.swift */,
 				52C0E1C129A6FF1300503EF4 /* GearDetailViewController.swift */,
+				52C0E1BA29A3AC3E00503EF4 /* Cell */,
 			);
 			name = VC;
 			sourceTree = "<group>";

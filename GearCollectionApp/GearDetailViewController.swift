@@ -56,13 +56,13 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     let realm = try! Realm()
-    
+    let imagePickerController = UIImagePickerController()
+
     // 写真を追加するボタン
-    @IBAction func photoButton(_ sender: Any) {
+    @IBAction func photoButton(_ sender: UIButton) {
+        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.delegate = self
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            let imagePickerController = UIImagePickerController()
-            imagePickerController.sourceType = .photoLibrary
-            imagePickerController.delegate = self
             self.present(imagePickerController, animated: true, completion: nil)
         }
         let gearRecord = GearRecord()
@@ -73,7 +73,7 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }
         try! realm.write{realm.add(gearRecord)}
     }
-    
+    // 保存するためのパスを作成する
     func createLocalDataFile() {
         let fileName = "\(NSUUID().uuidString).png"
         // DocumentディレクトリのfileURLを取得
@@ -84,7 +84,6 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     func saveImage() {
-        createLocalDataFile()
         let pngImageData = imageView.image?.pngData()
         do {
             try pngImageData!.write(to: documentDirectoryFileURL)
@@ -92,10 +91,10 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
             print("エラー")
         }
     }
+
     
         
-    // Documentsディレクトリのパス取得(画像データを保存する場所)
-    let DocumentsPath = NSHomeDirectory() + "/Documents"
+
     // Documentディレクトリの「ファイルURL」(URL型)定義
     var documentDirectoryFileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
     // Documentディレクトリの「パス」(String型)定義
@@ -145,7 +144,8 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var date: Date = Date()
     
     var gearList: [GearRecord] = []
-    
+    var gearData: Results<GearRecord>!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         addButton.isEnabled = false
@@ -153,10 +153,14 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
         createPickerView()
         configureDateTextField()
         let realm = try! Realm()
-        let result = realm.objects(GearRecord.self)
-        gearList = Array(result)
+        gearData = realm.objects(GearRecord.self)
+        let fileURL = URL(string: gearData[0].image)
+        let filePath = fileURL?.path
+        imageView.image = UIImage(contentsOfFile: filePath!)
+        gearList = Array(gearData)
         closeKeyboard()
         print("👀firstRecord: \(String(describing: gearList))")
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
     
     @objc func dismissKeyboard() {
