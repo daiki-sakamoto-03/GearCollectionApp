@@ -16,9 +16,10 @@ class AllViewController: UIViewController, IndicatorInfoProvider {
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
     
-    
+    let allTableViewCell = AllTableViewCell()
     var gearDataList: [GearRecord] = []
-    
+    var geardataList: Results<GearRecord>!
+
     
     
     override func viewDidLoad() {
@@ -28,7 +29,9 @@ class AllViewController: UIViewController, IndicatorInfoProvider {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setGearData()
+        allTableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -63,6 +66,13 @@ extension AllViewController: UITableViewDataSource, UITableViewDelegate {
         cell.amountLabel.text = "\(gearRecord.amount)"
         cell.weightLabel.text = "\(gearRecord.weight)"
         cell.dateLabel.text = "\(gearRecord.date)"
+        let realm = try! Realm()
+        geardataList = realm.objects(GearRecord.self)
+        let fileURL = URL(string: geardataList[0].imageURL)
+        let filePath = fileURL?.path
+        allTableViewCell.img?.image = UIImage(contentsOfFile: filePath!)
+        
+        
         return cell
     }
     // 削除機能追加

@@ -9,9 +9,7 @@ import UIKit
 import RealmSwift
 
 class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    
-    
+
     @IBOutlet weak var categoryText: UITextField!
     @IBOutlet weak var makerText: UITextField!
     @IBOutlet weak var nameText: UITextField!
@@ -22,6 +20,7 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet weak var imageView: UIImageView!
     
     var record = GearRecord()
+    var geardataList: Results<GearRecord>!
 
     // 登録ボタン
     @IBAction func addButton(_ sender: UIButton) {
@@ -29,6 +28,7 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
         let gearDetailViewConntroller = storyboard.instantiateViewController(identifier: "GearDetail") as! GearDetailViewController
         navigationController?.pushViewController(gearDetailViewConntroller, animated: true)
         saveRecord()
+        saveImage()
     }
     // カテゴリが未入力の場合、「登録する」ボタンを無効にする
     @IBAction func categoryTextBtnInactive(_ sender: Any) {
@@ -56,85 +56,37 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     let realm = try! Realm()
-    let imagePickerController = UIImagePickerController()
-
+    
     // 写真を追加するボタン
     @IBAction func photoButton(_ sender: UIButton) {
+        let imagePickerController = UIImagePickerController()
         imagePickerController.sourceType = .photoLibrary
         imagePickerController.delegate = self
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            self.present(imagePickerController, animated: true, completion: nil)
-        }
-        let gearRecord = GearRecord()
-        do {
-            try gearRecord.image = documentDirectoryFileURL.absoluteString
-        } catch {
-            print("画像の保存に失敗しました。")
-        }
-        try! realm.write{realm.add(gearRecord)}
+        present(imagePickerController, animated: true, completion: nil)
     }
-    // 保存するためのパスを作成する
-    func createLocalDataFile() {
-        let fileName = "\(NSUUID().uuidString).png"
-        // DocumentディレクトリのfileURLを取得
-        if documentDirectoryFileURL != nil {
-            let path = documentDirectoryFileURL.appendingPathComponent(fileName)
-            documentDirectoryFileURL = path
-        }
-    }
-    
-    func saveImage() {
-        let pngImageData = imageView.image?.pngData()
-        do {
-            try pngImageData!.write(to: documentDirectoryFileURL)
-        } catch {
-            print("エラー")
-        }
-    }
-
-    
+    // 写真選択が完了した時に呼び出されるメソッド
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        dismiss(animated: true, completion: nil)
         
-
-    // Documentディレクトリの「ファイルURL」(URL型)定義
-    var documentDirectoryFileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-    // Documentディレクトリの「パス」(String型)定義
-    let filePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            fatalError("Ecpected a dictionary containing on image, but was provided the following: \(info)")
+        }
+        imageView.image = selectedImage
+        saveImage()
+        let record = GearRecord()
+        do {
+            try record.imageURL = documentDirectoryFileURL.absoluteString
+        } catch {
+            print("画像の保存に失敗しました！")
+        }
+        try! realm.write{realm.add(record)}
+        
+    }
     
     
     @objc func didTapDone() {
         view.endEditing(true)
     }
-    
-    // キーボードに閉じるボタンを実装（コンピューティッドプロパティ）
-    var toolBar: UIToolbar {
-        let toolBarRect = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35)
-        let toolBar = UIToolbar(frame: toolBarRect)
-        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapDone))
-        toolBar.setItems([doneItem], animated: true)
-        return toolBar
-    }
-    
-    // 日付入力のTextFieldに、DatePickerを実装（設定）
-    var datePicker: UIDatePicker {
-        let datePicker: UIDatePicker = UIDatePicker()
-        datePicker.datePickerMode = .date
-        datePicker.timeZone = .current // タイムゾーンを現在位置に設定
-        datePicker.preferredDatePickerStyle = .wheels // ホイールスタイルのUIを指定
-        datePicker.locale = Locale(identifier: "ja_JP") // 日本のロケールを指定
-        datePicker.date = Date() // 現在の日付を代入
-        datePicker.addTarget(self, action: #selector(didChangeDate), for: .valueChanged) // ピッカーの値が変更された際に、didChangeDateメソッドを実行
-        return datePicker
-    }
-    
-    // 日付をUITextFieldに表示する（日付の値を文字列に変換）
-    var dateFormatter: DateFormatter {
-        let dateFormatt = DateFormatter()
-        dateFormatt.dateStyle = .long
-        dateFormatt.timeZone = .current
-        dateFormatt.locale = Locale(identifier: "ja_JP")
-        return dateFormatt
-    }
-    
     
     var category: String = ""
     var maker: String = ""
@@ -142,9 +94,9 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var amount: Int = 0
     var weight: Double = 0.0
     var date: Date = Date()
+    var image: String = ""
     
     var gearList: [GearRecord] = []
-    var gearData: Results<GearRecord>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -152,89 +104,12 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
         displayData()
         createPickerView()
         configureDateTextField()
-        let realm = try! Realm()
-        gearData = realm.objects(GearRecord.self)
-        let fileURL = URL(string: gearData[0].image)
-        let filePath = fileURL?.path
-        imageView.image = UIImage(contentsOfFile: filePath!)
-        gearList = Array(gearData)
+        gearList = Array(gearList)
+        geardataList = realm.objects(GearRecord.self)
         closeKeyboard()
         print("👀firstRecord: \(String(describing: gearList))")
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
     
-    @objc func dismissKeyboard() {
-        self.view.endEditing(true)
-    }
-    
-    // 他の場所をタップしたらキーボードが閉じる設定
-    @objc func closeKeyboard() {
-        let tapGR: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        tapGR.cancelsTouchesInView = false
-        self.view.addGestureRecognizer(tapGR)
-        NotificationCenter.default.addObserver(self, selector: #selector(namekeyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(amountkeyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(weightkeyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(datekeyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    // ギア名入力時、TextFieldにキーボードが被らないようにする
-    @objc func namekeyboardWillShow(notification: NSNotification) {
-        if !nameText.isFirstResponder {
-            return
-        }
-        
-        if self.view.frame.origin.y == 0 {
-            if let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-                self.view.frame.origin.y -= keyboardRect.height
-            }
-        }
-    }
-    // 金額入力時、TextFieldにキーボードが被らないようにする
-    @objc func amountkeyboardWillShow(notification: NSNotification) {
-        if !amountText.isFirstResponder {
-            return
-        }
-        
-        if self.view.frame.origin.y == 0 {
-            if let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-                self.view.frame.origin.y -= keyboardRect.height
-            }
-        }
-    }
-    // 重量入力時、TextFieldにキーボードが被らないようにする
-    @objc func weightkeyboardWillShow(notification: NSNotification) {
-        if !weightText.isFirstResponder {
-            return
-        }
-        
-        if self.view.frame.origin.y == 0 {
-            if let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-                self.view.frame.origin.y -= keyboardRect.height
-            }
-        }
-    }
-    // 日付入力時、TextFieldにキーボードが被らないようにする
-    @objc func datekeyboardWillShow(notification: NSNotification) {
-        if !dateText.isFirstResponder {
-            return
-        }
-        
-        if self.view.frame.origin.y == 0 {
-            if let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-                self.view.frame.origin.y -= keyboardRect.height
-            }
-        }
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 0
-        }
-    }
-    
-
     
     func configure(gear: GearDataModel) {
         category = gear.category
@@ -292,7 +167,73 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }
         dismiss(animated: true) // 画面を閉じる処理
     }
+
+    var pickerView = UIPickerView()
+    var categoryData = ["TENT&TARP", "TABLE&CHAIR", "FIRE", "KITCHEN&TABLEWEAR", "SLEEPING", "OTHER"]
     
+    
+    var documentDirectoryFileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    let filePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]    
+    
+    func createLocalDataFile() {
+        let fileName = "(NSUUID().uuidString).png"
+        if documentDirectoryFileURL != nil {
+            let path = documentDirectoryFileURL.appendingPathComponent(fileName)
+            documentDirectoryFileURL = path
+        }
+    }
+    
+    func saveImage() {
+        createLocalDataFile()
+        let pngImageData = imageView.image?.pngData()
+        do {
+            try pngImageData!.write(to: documentDirectoryFileURL)
+        } catch {
+            print("エラー！")
+        }
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// MARK: DatePicker関連
+extension GearDetailViewController {
+    // 日付入力のTextFieldに、DatePickerを実装（設定）
+    var datePicker: UIDatePicker {
+        let datePicker: UIDatePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        datePicker.timeZone = .current // タイムゾーンを現在位置に設定
+        datePicker.preferredDatePickerStyle = .wheels // ホイールスタイルのUIを指定
+        datePicker.locale = Locale(identifier: "ja_JP") // 日本のロケールを指定
+        datePicker.date = Date() // 現在の日付を代入
+        datePicker.addTarget(self, action: #selector(didChangeDate), for: .valueChanged) // ピッカーの値が変更された際に、didChangeDateメソッドを実行
+        return datePicker
+    }
+    
+    // 日付をUITextFieldに表示する（日付の値を文字列に変換）
+    var dateFormatter: DateFormatter {
+        let dateFormatt = DateFormatter()
+        dateFormatt.dateStyle = .long
+        dateFormatt.timeZone = .current
+        dateFormatt.locale = Locale(identifier: "ja_JP")
+        return dateFormatt
+    }
     // カテゴリ入力時に、PickerViewの設定
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -309,9 +250,6 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         categoryText.text = categoryData[row]
     }
-    var pickerView = UIPickerView()
-    var categoryData = ["TENT&TARP", "TABLE&CHAIR", "FIRE", "KITCHEN&TABLEWEAR", "SLEEPING", "OTHER"]
-    
     
     @objc func donePicker() {
         categoryText.endEditing(true)
@@ -328,10 +266,80 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     func configureDateTextField() {
         dateText.inputView = datePicker
-        dateText.inputAccessoryView = toolBar
         dateText.text = dateFormatter.string(from: Date())
     }
-
 }
 
-
+// MARK: キーボード関連
+extension GearDetailViewController {
+    
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
+    
+    // 他の場所をタップしたらキーボードが閉じる設定
+    @objc func closeKeyboard() {
+        let tapGR: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGR.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapGR)
+        NotificationCenter.default.addObserver(self, selector: #selector(namekeyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(amountkeyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(weightkeyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(datekeyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    // ギア名入力時、TextFieldにキーボードが被らないようにする
+    @objc func namekeyboardWillShow(notification: NSNotification) {
+        if !nameText.isFirstResponder {
+            return
+        }
+        
+        if self.view.frame.origin.y == 0 {
+            if let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                self.view.frame.origin.y -= keyboardRect.height
+            }
+        }
+    }
+    // 金額入力時、TextFieldにキーボードが被らないようにする
+    @objc func amountkeyboardWillShow(notification: NSNotification) {
+        if !amountText.isFirstResponder {
+            return
+        }
+        
+        if self.view.frame.origin.y == 0 {
+            if let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                self.view.frame.origin.y -= keyboardRect.height
+            }
+        }
+    }
+    // 重量入力時、TextFieldにキーボードが被らないようにする
+    @objc func weightkeyboardWillShow(notification: NSNotification) {
+        if !weightText.isFirstResponder {
+            return
+        }
+        
+        if self.view.frame.origin.y == 0 {
+            if let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                self.view.frame.origin.y -= keyboardRect.height
+            }
+        }
+    }
+    // 日付入力時、TextFieldにキーボードが被らないようにする
+    @objc func datekeyboardWillShow(notification: NSNotification) {
+        if !dateText.isFirstResponder {
+            return
+        }
+        
+        if self.view.frame.origin.y == 0 {
+            if let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                self.view.frame.origin.y -= keyboardRect.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+}

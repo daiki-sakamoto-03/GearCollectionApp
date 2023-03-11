@@ -19,6 +19,6 @@ class GearRecord: Object {
     @objc dynamic var amount: Int = 0
     @objc dynamic var weight: Double = 0.0
     @objc dynamic var date: Date = Date()
-    @objc dynamic var image:String = ""
+    @objc dynamic var imageURL: String = ""
     
 }
