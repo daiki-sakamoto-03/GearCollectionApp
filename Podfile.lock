@@ -4,19 +4,23 @@ PODS:
   - Realm/Headers (10.34.0)
   - RealmSwift (10.34.0):
     - Realm (= 10.34.0)
+  - XLPagerTabStrip (9.0.0)
 
 DEPENDENCIES:
   - RealmSwift
+  - XLPagerTabStrip
 
 SPEC REPOS:
   trunk:
     - Realm
     - RealmSwift
+    - XLPagerTabStrip
 
 SPEC CHECKSUMS:
   Realm: 991e7c4d6d37f1d6470a48bb072782ef00b91b67
   RealmSwift: 11e77934e4af6d011d2970645fe56e11fa0e3c2c
+  XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: 148ed7fb316829589846e3a84aa75afaeae609dd
+PODFILE CHECKSUM: 40d154317a6c99475c19f5911e6f39ed6628841a
 
 COCOAPODS: 1.11.3
