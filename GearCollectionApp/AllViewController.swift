@@ -19,6 +19,7 @@ class AllViewController: UIViewController, IndicatorInfoProvider {
     let allTableViewCell = AllTableViewCell()
     var gearDataList: [GearRecord] = []
     var geardataList: Results<GearRecord>!
+    let gearDVC = GearDetailViewController()
 
     
     
@@ -28,8 +29,7 @@ class AllViewController: UIViewController, IndicatorInfoProvider {
         allTableView.rowHeight = 100 // tableViewの高さを100で固定
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
         setGearData()
         allTableView.reloadData()
     }
@@ -66,13 +66,6 @@ extension AllViewController: UITableViewDataSource, UITableViewDelegate {
         cell.amountLabel.text = "\(gearRecord.amount)"
         cell.weightLabel.text = "\(gearRecord.weight)"
         cell.dateLabel.text = "\(gearRecord.date)"
-        let realm = try! Realm()
-        geardataList = realm.objects(GearRecord.self)
-        let fileURL = URL(string: geardataList[0].imageURL)
-        let filePath = fileURL?.path
-        allTableViewCell.img?.image = UIImage(contentsOfFile: filePath!)
-        
-        
         return cell
     }
     // 削除機能追加

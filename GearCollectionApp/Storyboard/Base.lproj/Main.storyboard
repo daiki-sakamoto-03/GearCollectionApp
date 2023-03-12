@@ -21,30 +21,30 @@
                                 <rect key="frame" x="0.0" y="104" width="393" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="TrF-0P-K4O"/>
+                                    <constraint firstAttribute="height" constant="50" id="VA1-CZ-ffy"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="o6H-vI-xDH">
-                                    <size key="itemSize" width="141" height="65"/>
+                                    <size key="itemSize" width="140" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="whh-4h-yZF">
-                                        <rect key="frame" x="0.0" y="0.0" width="141" height="65"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="e0A-aT-0y1">
-                                            <rect key="frame" x="0.0" y="0.0" width="141" height="65"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="140" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="141" height="65"/>
+                                        <size key="customSize" width="140" height="50"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PjS-hK-bGs">
-                                <rect key="frame" x="0.0" y="59" width="393" height="45"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="OWI-MT-hI5"/>
+                                    <constraint firstAttribute="height" constant="44" id="uw0-Up-GpK"/>
                                 </constraints>
                                 <items>
                                     <navigationItem title="アプリタイトル" id="NmO-MD-WiV">
@@ -65,16 +65,16 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vfM-6S-yEY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="4jQ-EU-aJl"/>
-                            <constraint firstItem="vfM-6S-yEY" firstAttribute="top" secondItem="PjS-hK-bGs" secondAttribute="bottom" id="Aul-0o-qsK"/>
-                            <constraint firstItem="EgK-Ix-9oC" firstAttribute="top" secondItem="vfM-6S-yEY" secondAttribute="bottom" id="FzL-w4-OBU"/>
-                            <constraint firstItem="PjS-hK-bGs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="GKr-ij-tDi"/>
-                            <constraint firstItem="EgK-Ix-9oC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="H3H-Qs-6Qi"/>
-                            <constraint firstItem="PjS-hK-bGs" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="L6H-Hy-Kh4"/>
-                            <constraint firstAttribute="bottom" secondItem="EgK-Ix-9oC" secondAttribute="bottom" id="Xgc-aY-KqF"/>
-                            <constraint firstItem="EgK-Ix-9oC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="f79-oc-MR2"/>
-                            <constraint firstItem="vfM-6S-yEY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jjP-Xz-99B"/>
-                            <constraint firstItem="PjS-hK-bGs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oRD-Ft-yny"/>
+                            <constraint firstItem="vfM-6S-yEY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4Gk-dl-i18"/>
+                            <constraint firstItem="vfM-6S-yEY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="6uF-AO-KJh"/>
+                            <constraint firstItem="EgK-Ix-9oC" firstAttribute="top" secondItem="vfM-6S-yEY" secondAttribute="bottom" constant="8" id="8Qc-8Y-r6U"/>
+                            <constraint firstItem="EgK-Ix-9oC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="KGR-gO-uhZ"/>
+                            <constraint firstItem="PjS-hK-bGs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="YBa-AT-cqu"/>
+                            <constraint firstItem="PjS-hK-bGs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ag6-NO-LEP"/>
+                            <constraint firstItem="PjS-hK-bGs" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="asq-KX-1E1"/>
+                            <constraint firstItem="vfM-6S-yEY" firstAttribute="top" secondItem="PjS-hK-bGs" secondAttribute="bottom" constant="1" id="vho-7Y-YDV"/>
+                            <constraint firstItem="EgK-Ix-9oC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="vz3-zu-zND"/>
+                            <constraint firstAttribute="bottom" secondItem="EgK-Ix-9oC" secondAttribute="bottom" id="xfN-9c-okA"/>
                         </constraints>
                     </view>
                     <connections>
@@ -84,19 +84,21 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1344" y="-660"/>
+            <point key="canvasLocation" x="1342.7480916030534" y="-660.56338028169023"/>
         </scene>
         <!--Gear Detail View Controller-->
         <scene sceneID="UT1-Qa-9pO">
             <objects>
-                <viewController storyboardIdentifier="GearDetail" id="El8-Hk-hWR" customClass="GearDetailViewController" customModule="GearCollectionApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GearDetail" modalPresentationStyle="fullScreen" id="El8-Hk-hWR" customClass="GearDetailViewController" customModule="GearCollectionApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v9l-Fr-wio">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="カテゴリ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OUZ-LI-TJh">
-                                <rect key="frame" x="59" y="346" width="274" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="カテゴリ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OUZ-LI-TJh">
+                                <rect key="frame" x="61.666666666666657" y="346.66666666666669" width="270" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="n8W-Ui-Gzw"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -104,9 +106,11 @@
                                     <outlet property="delegate" destination="El8-Hk-hWR" id="C4J-fT-D6T"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メーカー" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2KT-3X-V54">
-                                <rect key="frame" x="59" y="396" width="274" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メーカー" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2KT-3X-V54">
+                                <rect key="frame" x="61.666666666666657" y="396.66666666666669" width="270" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="268-dr-H8v"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -114,9 +118,11 @@
                                     <outlet property="delegate" destination="El8-Hk-hWR" id="pOw-Mq-Psf"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="名前" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xel-rX-Yso">
-                                <rect key="frame" x="59" y="448" width="274" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="名前" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xel-rX-Yso">
+                                <rect key="frame" x="61.666666666666657" y="446.66666666666669" width="270" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="DyZ-t8-emS"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -124,58 +130,95 @@
                                     <outlet property="delegate" destination="El8-Hk-hWR" id="vtg-eW-YiT"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="金額" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Oj-ts-IPY">
-                                <rect key="frame" x="59" y="504" width="274" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="金額" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Oj-ts-IPY">
+                                <rect key="frame" x="61.666666666666657" y="496.66666666666674" width="270" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="cD6-Bp-LgK"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
                                     <outlet property="delegate" destination="El8-Hk-hWR" id="d55-xR-Nnk"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="重量" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bha-ib-09H">
-                                <rect key="frame" x="59" y="556" width="274" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="重量" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bha-ib-09H">
+                                <rect key="frame" x="61.666666666666657" y="546.66666666666663" width="270" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="idi-F4-NC4"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
                                     <outlet property="delegate" destination="El8-Hk-hWR" id="IFp-Zf-YtX"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="購入日" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sgr-5w-8hS">
-                                <rect key="frame" x="59" y="608" width="274" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="購入日" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sgr-5w-8hS">
+                                <rect key="frame" x="61.666666666666657" y="596.66666666666663" width="270" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="hji-V7-YBY"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="El8-Hk-hWR" id="fp0-pL-jLJ"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNf-ga-CI6">
-                                <rect key="frame" x="136" y="680" width="120" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNf-ga-CI6">
+                                <rect key="frame" x="150" y="680.66666666666663" width="93.333333333333314" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="登録する"/>
                                 <connections>
                                     <action selector="addButton:" destination="El8-Hk-hWR" eventType="touchUpInside" id="fLR-NP-Qte"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Xh-s2-NLe">
-                                <rect key="frame" x="85" y="49" width="222" height="222"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Xh-s2-NLe">
+                                <rect key="frame" x="85.666666666666686" y="67" width="222" height="222"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="222" id="ilj-P8-JkN"/>
+                                    <constraint firstAttribute="width" constant="222" id="yXr-WB-3ON"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nqd-iu-h3y">
-                                <rect key="frame" x="141" y="279" width="111" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nqd-iu-h3y">
+                                <rect key="frame" x="141.33333333333334" y="303.66666666666669" width="110.66666666666666" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="写真を追加"/>
                                 <connections>
                                     <action selector="photoButton:" destination="El8-Hk-hWR" eventType="touchUpInside" id="3XY-m6-JTm"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQZ-eZ-lF0">
+                                <rect key="frame" x="141" y="733" width="111" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="キャンセル"/>
+                                <connections>
+                                    <action selector="cancelButton:" destination="El8-Hk-hWR" eventType="touchUpInside" id="bud-3y-fqS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7cz-tL-wMr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nNf-ga-CI6" firstAttribute="top" secondItem="Sgr-5w-8hS" secondAttribute="bottom" constant="50" id="0Mc-jn-cQX"/>
+                            <constraint firstItem="Sgr-5w-8hS" firstAttribute="centerX" secondItem="v9l-Fr-wio" secondAttribute="centerX" id="1MR-Hm-2IE"/>
+                            <constraint firstItem="7Oj-ts-IPY" firstAttribute="centerX" secondItem="v9l-Fr-wio" secondAttribute="centerX" id="6bM-tU-SDc"/>
+                            <constraint firstItem="7cz-tL-wMr" firstAttribute="bottom" secondItem="UQZ-eZ-lF0" secondAttribute="bottom" constant="50" id="7iG-Pb-IMI"/>
+                            <constraint firstItem="9Xh-s2-NLe" firstAttribute="top" secondItem="7cz-tL-wMr" secondAttribute="top" constant="8" id="8VG-Mh-Brl"/>
+                            <constraint firstItem="UQZ-eZ-lF0" firstAttribute="top" secondItem="nNf-ga-CI6" secondAttribute="bottom" constant="18" id="BH4-kC-r3f"/>
+                            <constraint firstItem="OUZ-LI-TJh" firstAttribute="centerX" secondItem="v9l-Fr-wio" secondAttribute="centerX" id="EkO-17-ibc"/>
+                            <constraint firstItem="Xel-rX-Yso" firstAttribute="top" secondItem="2KT-3X-V54" secondAttribute="bottom" constant="16" id="Iws-pd-Jcg"/>
+                            <constraint firstItem="OUZ-LI-TJh" firstAttribute="top" secondItem="Nqd-iu-h3y" secondAttribute="bottom" constant="8" id="L0h-VE-USc"/>
+                            <constraint firstItem="2KT-3X-V54" firstAttribute="top" secondItem="OUZ-LI-TJh" secondAttribute="bottom" constant="16" id="Lsi-xm-MEl"/>
+                            <constraint firstItem="Xel-rX-Yso" firstAttribute="centerX" secondItem="v9l-Fr-wio" secondAttribute="centerX" id="T8k-c4-xbi"/>
+                            <constraint firstItem="nNf-ga-CI6" firstAttribute="centerX" secondItem="v9l-Fr-wio" secondAttribute="centerX" id="caM-Xi-m1b"/>
+                            <constraint firstItem="7Oj-ts-IPY" firstAttribute="top" secondItem="Xel-rX-Yso" secondAttribute="bottom" constant="16" id="d0U-Os-n7j"/>
+                            <constraint firstItem="Bha-ib-09H" firstAttribute="top" secondItem="7Oj-ts-IPY" secondAttribute="bottom" constant="16" id="jRo-vu-6Nn"/>
+                            <constraint firstItem="9Xh-s2-NLe" firstAttribute="centerX" secondItem="v9l-Fr-wio" secondAttribute="centerX" id="lFk-GW-pn6"/>
+                            <constraint firstItem="UQZ-eZ-lF0" firstAttribute="centerX" secondItem="v9l-Fr-wio" secondAttribute="centerX" id="lWO-zG-jjI"/>
+                            <constraint firstItem="2KT-3X-V54" firstAttribute="centerX" secondItem="v9l-Fr-wio" secondAttribute="centerX" id="mS1-CD-OIl"/>
+                            <constraint firstItem="Nqd-iu-h3y" firstAttribute="centerX" secondItem="v9l-Fr-wio" secondAttribute="centerX" id="nEN-1r-csL"/>
+                            <constraint firstItem="Bha-ib-09H" firstAttribute="centerX" secondItem="v9l-Fr-wio" secondAttribute="centerX" id="uuG-rc-H2K"/>
+                            <constraint firstItem="Sgr-5w-8hS" firstAttribute="top" secondItem="Bha-ib-09H" secondAttribute="bottom" constant="16" id="x9f-Ci-lDD"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="addButton" destination="nNf-ga-CI6" id="HuG-ZL-MSo"/>

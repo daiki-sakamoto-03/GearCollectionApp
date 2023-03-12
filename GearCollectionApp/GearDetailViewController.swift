@@ -18,9 +18,27 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet weak var dateText: UITextField!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
+    @IBAction func cancelButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     
     var record = GearRecord()
     var geardataList: Results<GearRecord>!
+    var category: String = ""
+    var maker: String = ""
+    var name: String = ""
+    var amount: Int = 0
+    var weight: Double = 0.0
+    var date: Date = Date()
+    var image: String = ""
+    var gearList: [GearRecord] = []
+    var pickerView = UIPickerView()
+    var imagePickerController = UIImagePickerController()
+    var categoryData = ["TENT&TARP", "TABLE&CHAIR", "FIRE", "KITCHEN&TABLEWEAR", "SLEEPING", "OTHER"]
+    var documentDirectoryFileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    let filePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+    
 
     // 登録ボタン
     @IBAction func addButton(_ sender: UIButton) {
@@ -28,7 +46,6 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
         let gearDetailViewConntroller = storyboard.instantiateViewController(identifier: "GearDetail") as! GearDetailViewController
         navigationController?.pushViewController(gearDetailViewConntroller, animated: true)
         saveRecord()
-        saveImage()
     }
     // カテゴリが未入力の場合、「登録する」ボタンを無効にする
     @IBAction func categoryTextBtnInactive(_ sender: Any) {
@@ -59,28 +76,33 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     // 写真を追加するボタン
     @IBAction func photoButton(_ sender: UIButton) {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.sourceType = .photoLibrary
-        imagePickerController.delegate = self
-        present(imagePickerController, animated: true, completion: nil)
+        self.present(imagePickerController, animated: true, completion: nil)
     }
     // 写真選択が完了した時に呼び出されるメソッド
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        dismiss(animated: true, completion: nil)
-        
-        guard let selectedImage = info[.originalImage] as? UIImage else {
-            fatalError("Ecpected a dictionary containing on image, but was provided the following: \(info)")
+        let image = info[.originalImage] as! UIImage // 選択された画像を取得
+        let imageName = UUID().uuidString // ユニークなNameを生成
+        // アプリ内のDocumentsフォルダに写真を保存する
+        if let imageData = image.jpegData(compressionQuality: 1.0) {
+            do {
+                // URL型にキャストしてアプリ内のDocumentフォルダに写真を保存する
+                try imageData.write(to: docURL("\(imageName).jpg")!)
+                print("画像を保存できました")
+            } catch {
+                print("\(error)")
+            }
         }
-        imageView.image = selectedImage
-        saveImage()
-        let record = GearRecord()
-        do {
-            try record.imageURL = documentDirectoryFileURL.absoluteString
-        } catch {
-            print("画像の保存に失敗しました！")
-        }
-        try! realm.write{realm.add(record)}
-        
+        // RealmにユニークなIDを生成
+        saveImageName(imageName: imageName)
+        // UIImageViewに表示
+        imageView.image = image
+        // Pickerを閉じる
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    // 写真選択がキャンセルされた時の処理
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
     
     
@@ -88,15 +110,7 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
         view.endEditing(true)
     }
     
-    var category: String = ""
-    var maker: String = ""
-    var name: String = ""
-    var amount: Int = 0
-    var weight: Double = 0.0
-    var date: Date = Date()
-    var image: String = ""
-    
-    var gearList: [GearRecord] = []
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,6 +122,17 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
         geardataList = realm.objects(GearRecord.self)
         closeKeyboard()
         print("👀firstRecord: \(String(describing: gearList))")
+        
+        // UIImageViewの設定
+        imageView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+        imageView.contentMode = .scaleAspectFit
+        imageView.center = self.view.center
+        self.view.addSubview(imageView)
+        
+        loadImage()
+        
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
     }
     
     
@@ -167,42 +192,66 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }
         dismiss(animated: true) // 画面を閉じる処理
     }
-
-    var pickerView = UIPickerView()
-    var categoryData = ["TENT&TARP", "TABLE&CHAIR", "FIRE", "KITCHEN&TABLEWEAR", "SLEEPING", "OTHER"]
-    
-    
-    var documentDirectoryFileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-    let filePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]    
-    
-    func createLocalDataFile() {
-        let fileName = "(NSUUID().uuidString).png"
-        if documentDirectoryFileURL != nil {
-            let path = documentDirectoryFileURL.appendingPathComponent(fileName)
-            documentDirectoryFileURL = path
-        }
-    }
-    
-    func saveImage() {
-        createLocalDataFile()
-        let pngImageData = imageView.image?.pngData()
-        do {
-            try pngImageData!.write(to: documentDirectoryFileURL)
-        } catch {
-            print("エラー！")
-        }
-    }
-    
 }
 
 
 
+// MARK: パスの構築
+extension GearDetailViewController {
+    private func docURL(_ fileName: String) -> URL? {
+        do {
+            // DocumentフォルダURL
+            let docsUrl = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+            let url = docsUrl.appendingPathComponent(fileName)
+            return url
+        } catch {
+            return nil
+        }
+    }
+}
 
-
-
-
-
-
+// MARK: Realm関連
+extension GearDetailViewController {
+    // Realmに画像ファイル名を保存する
+    private func saveImageName(imageName: String) {
+        // GearRecordクラスをインスタンス化
+        let gearRecord = GearRecord()
+        // GearRecordにパスを代入
+        gearRecord.imageURL = imageName
+        // Realmに保存
+        try! realm.write {
+            realm.add(gearRecord)
+        }
+    }
+    
+    // Realmに保存したファイルNameからパスを生成し、イメージ画像を取得する
+    func loadImage() {
+        // Realmオブジェクト初期化
+        let result = realm.objects(GearRecord.self)
+        // Swiftオブジェクトに代入
+        gearList = Array(result)
+        // gearRecordに配列が空ならリターン
+        guard gearList.isEmpty == false else {
+            return
+        }
+        // gearRecordに配列の0番目のimageURLが空ならリターン
+        guard gearList[0].imageURL.isEmpty == false else {
+            return
+        }
+        // Swiftオブジェクトの配列の0番目のパスを取得
+        let path = docURL("\(gearList[0].imageURL).jpg")!.path
+        // パスからimageを取ってくる
+        if FileManager.default.fileExists(atPath: path) {
+            if let image = UIImage(contentsOfFile: path) {
+                imageView.image = image
+            } else {
+                print("読み込みに失敗しました")
+            }
+        } else {
+            print("画像が見つかりませんでした")
+        }
+    }
+}
 
 
 
