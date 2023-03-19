@@ -33,7 +33,6 @@ class ViewController: ButtonBarPagerTabStripViewController {
         settings.style.buttonBarItemTitleColor = UIColor.white
         //セレクトバーの色
         settings.style.selectedBarBackgroundColor = UIColor(red: 254/255, green: 0, blue: 124/255, alpha: 1)
-        
     }
     
     override func didReceiveMemoryWarning() {

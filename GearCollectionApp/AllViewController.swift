@@ -20,6 +20,7 @@ class AllViewController: UIViewController, IndicatorInfoProvider {
     var gearDataList: [GearRecord] = []
     var geardataList: Results<GearRecord>!
     let gearDVC = GearDetailViewController()
+    var realm: Realm!
 
     
     
@@ -27,11 +28,13 @@ class AllViewController: UIViewController, IndicatorInfoProvider {
         super.viewDidLoad()
         allTableView.register(UINib(nibName: "AllTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
         allTableView.rowHeight = 100 // tableViewの高さを100で固定
+
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         setGearData()
         allTableView.reloadData()
+        totalIndicate()
     }
     
     override func didReceiveMemoryWarning() {
@@ -47,6 +50,25 @@ class AllViewController: UIViewController, IndicatorInfoProvider {
         let result = realm.objects(GearRecord.self)
         gearDataList = Array(result)
         }
+    
+    // Realmに保存されたデータを合計し、ギアの個数、総額、総重量を表示するメソッド
+    func totalIndicate() {
+        do {
+            realm = try! Realm()
+        } catch let error {
+            print("エラー")
+        }
+        
+        let objects = realm.objects(GearRecord.self)
+        let amountSum = objects.sum(ofProperty: "amount")as Int
+        let weightSum = objects.sum(ofProperty: "weight")as Double
+        amountLabel.text = String(amountSum)
+        weightLabel.text = String(weightSum)
+        numberLabel.text = String(gearDataList.count)
+    }
+    
+    
+    
 }
     
 
@@ -63,8 +85,8 @@ extension AllViewController: UITableViewDataSource, UITableViewDelegate {
         // 各UILabelに、Realmに保存された内容を代入する
         cell.makerLabel.text = gearRecord.maker
         cell.nameLabel.text = gearRecord.name
-        cell.amountLabel.text = "\(gearRecord.amount)"
-        cell.weightLabel.text = "\(gearRecord.weight)"
+        cell.amountLabel.text = "\(gearRecord.amount)円"
+        cell.weightLabel.text = "\(gearRecord.weight)kg"
         cell.dateLabel.text = "\(gearRecord.date)"
         return cell
     }
@@ -80,4 +102,7 @@ extension AllViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     
+
+    
 }
+
