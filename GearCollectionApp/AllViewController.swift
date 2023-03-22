@@ -18,8 +18,6 @@ class AllViewController: UIViewController, IndicatorInfoProvider {
     
     let allTableViewCell = AllTableViewCell()
     var gearDataList: [GearRecord] = []
-    var geardataList: Results<GearRecord>!
-    let gearDVC = GearDetailViewController()
     var realm: Realm!
 
     
@@ -32,6 +30,7 @@ class AllViewController: UIViewController, IndicatorInfoProvider {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setGearData()
         allTableView.reloadData()
         totalIndicate()
@@ -88,6 +87,7 @@ extension AllViewController: UITableViewDataSource, UITableViewDelegate {
         cell.amountLabel.text = "\(gearRecord.amount)円"
         cell.weightLabel.text = "\(gearRecord.weight)kg"
         cell.dateLabel.text = "\(gearRecord.date)"
+        cell.img.image = loadImage(fileName: gearRecord.imageURL)
         return cell
     }
     // 削除機能追加
@@ -102,6 +102,37 @@ extension AllViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     
+    func loadImage(fileName: String) -> UIImage? {
+        guard gearDataList.isEmpty == false else {
+            return nil
+        }
+        guard fileName.isEmpty == false else {
+            return nil
+        }
+        let path = docURL("\(fileName).jpg")!.path
+        if FileManager.default.fileExists(atPath: path) { // fileExists→ディレクトリがどうかチェックするメソッド(引数atPathで示した定数pathが存在する場合はtrue、存在しない場合はfalseを返す)
+            if let image = UIImage(contentsOfFile: path) {
+                return image
+            } else {
+                print("読み込みに失敗しました")
+                return nil
+            }
+        } else {
+            print("画像が見つかりませんでした")
+            return nil
+        }
+    }
+    
+    private func docURL(_ fileName: String) -> URL? {
+        do {
+            let docsURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+            
+            let url = docsURL.appendingPathComponent(fileName)
+            return url
+        } catch {
+            return nil
+        }
+    }
 
     
 }

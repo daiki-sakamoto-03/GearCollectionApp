@@ -42,11 +42,9 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
 
     // 登録ボタン
     @IBAction func addButton(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let gearDetailViewConntroller = storyboard.instantiateViewController(identifier: "GearDetail") as! GearDetailViewController
-        navigationController?.pushViewController(gearDetailViewConntroller, animated: true)
         saveRecord()
     }
+    
     // カテゴリが未入力の場合、「登録する」ボタンを無効にする
     @IBAction func categoryTextBtnInactive(_ sender: Any) {
         if categoryText.text == "" {
@@ -121,16 +119,12 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
         gearList = Array(gearList)
         geardataList = realm.objects(GearRecord.self)
         closeKeyboard()
-        print("👀firstRecord: \(String(describing: gearList))")
         
         // UIImageViewの設定
         imageView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
         imageView.contentMode = .scaleAspectFit
         imageView.center = self.view.center
         self.view.addSubview(imageView)
-        
-        loadImage()
-        
         imagePickerController.delegate = self
         imagePickerController.sourceType = .photoLibrary
     }
@@ -221,34 +215,6 @@ extension GearDetailViewController {
         // Realmに保存
         try! realm.write {
             realm.add(gearRecord)
-        }
-    }
-    
-    // Realmに保存したファイルNameからパスを生成し、イメージ画像を取得する
-    func loadImage() {
-        // Realmオブジェクト初期化
-        let result = realm.objects(GearRecord.self)
-        // Swiftオブジェクトに代入
-        gearList = Array(result)
-        // gearRecordに配列が空ならリターン
-        guard gearList.isEmpty == false else {
-            return
-        }
-        // gearRecordに配列の0番目のimageURLが空ならリターン
-        guard gearList[0].imageURL.isEmpty == false else {
-            return
-        }
-        // Swiftオブジェクトの配列の0番目のパスを取得
-        let path = docURL("\(gearList[0].imageURL).jpg")!.path
-        // パスからimageを取ってくる
-        if FileManager.default.fileExists(atPath: path) {
-            if let image = UIImage(contentsOfFile: path) {
-                imageView.image = image
-            } else {
-                print("読み込みに失敗しました")
-            }
-        } else {
-            print("画像が見つかりませんでした")
         }
     }
 }
