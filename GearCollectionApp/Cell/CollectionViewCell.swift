@@ -15,5 +15,6 @@ class CollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         backgroundColor = .blue
     }
+    
 
 }

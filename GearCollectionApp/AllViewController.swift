@@ -19,6 +19,8 @@ class AllViewController: UIViewController, IndicatorInfoProvider {
     let allTableViewCell = AllTableViewCell()
     var gearDataList: [GearRecord] = []
     var realm: Realm!
+    var gearType: CategoryGearType = .all
+    let gearDetailVC = GearDetailViewController()
 
     
     
@@ -26,6 +28,17 @@ class AllViewController: UIViewController, IndicatorInfoProvider {
         super.viewDidLoad()
         allTableView.register(UINib(nibName: "AllTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
         allTableView.rowHeight = 100 // tableViewの高さを100で固定
+        
+        numberLabel.layer.cornerRadius = 10
+        numberLabel.clipsToBounds = true
+        numberLabel.layer.borderWidth = 1.0
+        amountLabel.layer.cornerRadius = 10
+        amountLabel.clipsToBounds = true
+        amountLabel.layer.borderWidth = 1.0
+        weightLabel.layer.cornerRadius = 10
+        weightLabel.clipsToBounds = true
+        weightLabel.layer.borderWidth = 1.0
+
 
     }
     
@@ -41,7 +54,7 @@ class AllViewController: UIViewController, IndicatorInfoProvider {
     }
     
     func indicatorInfo(for pagerTabStripController: XLPagerTabStrip.PagerTabStripViewController) -> XLPagerTabStrip.IndicatorInfo {
-        return "ALL"
+        return XLPagerTabStrip.IndicatorInfo(title: gearType.gearTypeName)
     }
     
     func setGearData() {
@@ -61,9 +74,9 @@ class AllViewController: UIViewController, IndicatorInfoProvider {
         let objects = realm.objects(GearRecord.self)
         let amountSum = objects.sum(ofProperty: "amount")as Int
         let weightSum = objects.sum(ofProperty: "weight")as Double
+        numberLabel.text = String(gearDataList.count)
         amountLabel.text = String(amountSum)
         weightLabel.text = String(weightSum)
-        numberLabel.text = String(gearDataList.count)
     }
     
     

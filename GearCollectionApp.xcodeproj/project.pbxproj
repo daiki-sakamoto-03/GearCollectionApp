@@ -33,6 +33,7 @@
 		52C0E1C029A4E8C100503EF4 /* AllTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52C0E1BE29A4E8C100503EF4 /* AllTableViewCell.xib */; };
 		52C0E1C229A6FF1300503EF4 /* GearDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1C129A6FF1300503EF4 /* GearDetailViewController.swift */; };
 		52C0E1C429A8ED7500503EF4 /* GearRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1C329A8ED7500503EF4 /* GearRecord.swift */; };
+		52C4466229CDE0520027328B /* GearCollectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C4466129CDE0520027328B /* GearCollectionType.swift */; };
 		8DA54EF818685379A91037AC /* Pods_GearCollectionAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1919560782DADAC9C9A14D01 /* Pods_GearCollectionAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,7 @@
 		52C0E1BE29A4E8C100503EF4 /* AllTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllTableViewCell.xib; sourceTree = "<group>"; };
 		52C0E1C129A6FF1300503EF4 /* GearDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearDetailViewController.swift; sourceTree = "<group>"; };
 		52C0E1C329A8ED7500503EF4 /* GearRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearRecord.swift; sourceTree = "<group>"; };
+		52C4466129CDE0520027328B /* GearCollectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearCollectionType.swift; sourceTree = "<group>"; };
 		70B4CC14D66D1A43515DB736 /* Pods_GearCollectionApp_GearCollectionAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GearCollectionApp_GearCollectionAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A92AE29DAD98A566632868 /* Pods_GearCollectionApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GearCollectionApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EBDB57B207869E088EECF10 /* Pods-GearCollectionApp-GearCollectionAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GearCollectionApp-GearCollectionAppUITests.release.xcconfig"; path = "Target Support Files/Pods-GearCollectionApp-GearCollectionAppUITests/Pods-GearCollectionApp-GearCollectionAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,7 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				5258BABD2993C05A00814796 /* GearCollectionApp */,
-				5258BAD42993C05B00814796 /* GearCollectionAppTests */,
 				5258BADE2993C05B00814796 /* GearCollectionAppUITests */,
 				5258BABC2993C05A00814796 /* Products */,
 				18FF06C7526E97EF90F9C4C2 /* Pods */,
@@ -178,6 +179,7 @@
 				523E8E172999035700BC6C15 /* GearDataModel.swift */,
 				52C0E1A6299BBA9800503EF4 /* GearTypeModel.swift */,
 				52C0E1C329A8ED7500503EF4 /* GearRecord.swift */,
+				5258BAD42993C05B00814796 /* GearCollectionAppTests */,
 			);
 			path = GearCollectionApp;
 			sourceTree = "<group>";
@@ -211,6 +213,7 @@
 				52C0E1B329A10AEB00503EF4 /* SleepingViewController.swift */,
 				52C0E1B529A10B0200503EF4 /* OtherViewController.swift */,
 				52C0E1C129A6FF1300503EF4 /* GearDetailViewController.swift */,
+				52C4466129CDE0520027328B /* GearCollectionType.swift */,
 				52C0E1BA29A3AC3E00503EF4 /* Cell */,
 			);
 			name = VC;
@@ -489,6 +492,7 @@
 				52C0E1C429A8ED7500503EF4 /* GearRecord.swift in Sources */,
 				523E8E132997909B00BC6C15 /* CollectionViewCell.swift in Sources */,
 				5258BAC12993C05A00814796 /* SceneDelegate.swift in Sources */,
+				52C4466229CDE0520027328B /* GearCollectionType.swift in Sources */,
 				52C0E1AB299FA8AE00503EF4 /* TentAndTarpViewController.swift in Sources */,
 				52C0E1AE29A10A8700503EF4 /* TableAndChairViewController.swift in Sources */,
 				52C0E1B229A10AD200503EF4 /* KitchenAndTablewearViewController.swift in Sources */,

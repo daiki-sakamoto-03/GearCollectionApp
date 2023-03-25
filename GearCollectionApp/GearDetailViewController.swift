@@ -32,7 +32,7 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var weight: Double = 0.0
     var date: Date = Date()
     var image: String = ""
-    var gearList: [GearRecord] = []
+    var imageName: String = ""
     var pickerView = UIPickerView()
     var imagePickerController = UIImagePickerController()
     var categoryData = ["TENT&TARP", "TABLE&CHAIR", "FIRE", "KITCHEN&TABLEWEAR", "SLEEPING", "OTHER"]
@@ -90,8 +90,8 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 print("\(error)")
             }
         }
-        // RealmにユニークなIDを生成
-        saveImageName(imageName: imageName)
+        // プロパティにセット
+        self.imageName = imageName
         // UIImageViewに表示
         imageView.image = image
         // Pickerを閉じる
@@ -116,7 +116,6 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
         displayData()
         createPickerView()
         configureDateTextField()
-        gearList = Array(gearList)
         geardataList = realm.objects(GearRecord.self)
         closeKeyboard()
         
@@ -146,12 +145,12 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
         var toIntAmount: Int? = Int(amountText.text!)
         var toIntWeight: Double? = Double(weightText.text!)
         dateText.inputView = datePicker
-        dateText.text = dateFormatter.string(from: Date()) // datePickerで選択された日付をString型に変換
+        dateText.text = stringToDate.string(from: Date()) // datePickerで選択された日付をString型に変換
     }
     
     // 日付が選択された際に、UITextFieldに日付が表示されるようにするメソッド
     @objc func didChangeDate(picker: UIDatePicker) {
-        dateText.text = dateFormatter.string(from: picker.date)
+        dateText.text = stringToDate.string(from: picker.date)
     }
     
     // データをRealmに保存する処理
@@ -179,9 +178,10 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 record.weight = weight
             }
             if let dateText = dateText.text,
-               let date = dateFormatter.date(from: dateText) {
+               let date = stringToDate.date(from: dateText) {
                 record.date = date
             }
+            record.imageURL = imageName
             realm.add(record)
         }
         dismiss(animated: true) // 画面を閉じる処理
@@ -204,28 +204,6 @@ extension GearDetailViewController {
     }
 }
 
-// MARK: Realm関連
-extension GearDetailViewController {
-    // Realmに画像ファイル名を保存する
-    private func saveImageName(imageName: String) {
-        // GearRecordクラスをインスタンス化
-        let gearRecord = GearRecord()
-        // GearRecordにパスを代入
-        gearRecord.imageURL = imageName
-        // Realmに保存
-        try! realm.write {
-            realm.add(gearRecord)
-        }
-    }
-}
-
-
-
-
-
-
-
-
 
 // MARK: DatePicker関連
 extension GearDetailViewController {
@@ -242,12 +220,13 @@ extension GearDetailViewController {
     }
     
     // 日付をUITextFieldに表示する（日付の値を文字列に変換）
-    var dateFormatter: DateFormatter {
-        let dateFormatt = DateFormatter()
-        dateFormatt.dateStyle = .long
-        dateFormatt.timeZone = .current
-        dateFormatt.locale = Locale(identifier: "ja_JP")
-        return dateFormatt
+    var stringToDate: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeZone = .current
+        formatter.locale = Locale(identifier: "ja-jp")
+        formatter.dateFormat = "yyyy年MM月dd日"
+        return formatter
     }
     // カテゴリ入力時に、PickerViewの設定
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -281,7 +260,7 @@ extension GearDetailViewController {
     
     func configureDateTextField() {
         dateText.inputView = datePicker
-        dateText.text = dateFormatter.string(from: Date())
+        dateText.text = stringToDate.string(from: Date())
     }
 }
 
