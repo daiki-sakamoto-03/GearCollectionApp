@@ -128,7 +128,6 @@ class GearDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
         imagePickerController.sourceType = .photoLibrary
     }
     
-    
     func configure(gear: GearDataModel) {
         category = gear.category
         maker = gear.maker
@@ -219,12 +218,12 @@ extension GearDetailViewController {
         return datePicker
     }
     
-    // 日付をUITextFieldに表示する（日付の値を文字列に変換）
+    // 日付をUITextFieldに表示する（日付の値をString→Date型に変換）
     var stringToDate: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
-        formatter.timeZone = .current
-        formatter.locale = Locale(identifier: "ja-jp")
+        formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+        formatter.timeStyle = .none
         formatter.dateFormat = "yyyy年MM月dd日"
         return formatter
     }

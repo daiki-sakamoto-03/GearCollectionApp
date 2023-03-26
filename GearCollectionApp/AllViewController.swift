@@ -21,6 +21,8 @@ class AllViewController: UIViewController, IndicatorInfoProvider {
     var realm: Realm!
     var gearType: CategoryGearType = .all
     let gearDetailVC = GearDetailViewController()
+    var record = GearRecord()
+    var formatter = DateFormatter()
 
     
     
@@ -39,7 +41,6 @@ class AllViewController: UIViewController, IndicatorInfoProvider {
         weightLabel.clipsToBounds = true
         weightLabel.layer.borderWidth = 1.0
 
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +48,8 @@ class AllViewController: UIViewController, IndicatorInfoProvider {
         setGearData()
         allTableView.reloadData()
         totalIndicate()
+        print("😭\(record.date)")
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,6 +64,8 @@ class AllViewController: UIViewController, IndicatorInfoProvider {
         let realm = try! Realm()
         let result = realm.objects(GearRecord.self)
         gearDataList = Array(result)
+        // Date→Stringに変換する
+        
         }
     
     // Realmに保存されたデータを合計し、ギアの個数、総額、総重量を表示するメソッド
@@ -99,7 +104,8 @@ extension AllViewController: UITableViewDataSource, UITableViewDelegate {
         cell.nameLabel.text = gearRecord.name
         cell.amountLabel.text = "\(gearRecord.amount)円"
         cell.weightLabel.text = "\(gearRecord.weight)kg"
-        cell.dateLabel.text = "\(gearRecord.date)"
+        
+        cell.dateLabel.text = dateToString.string(from: Date())
         cell.img.image = loadImage(fileName: gearRecord.imageURL)
         return cell
     }
@@ -145,6 +151,16 @@ extension AllViewController: UITableViewDataSource, UITableViewDelegate {
         } catch {
             return nil
         }
+    }
+    
+    var dateToString: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.calendar = Calendar(identifier: .gregorian)
+        formatter.locale = Locale(identifier: "ja_jp")
+        formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+        formatter.timeStyle = .none
+        formatter.dateFormat = "yyyy年MM月dd日"
+        return formatter
     }
 
     

@@ -46,10 +46,10 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0H-Xh-k7N">
-                        <rect key="frame" x="197" y="0.0" width="140" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0H-Xh-k7N">
+                        <rect key="frame" x="197" y="5" width="120" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="140" id="JFO-fP-5Yc"/>
+                            <constraint firstAttribute="width" constant="120" id="JFO-fP-5Yc"/>
                             <constraint firstAttribute="height" constant="20" id="xp1-mX-vFT"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="12"/>
@@ -79,18 +79,18 @@
                     <constraint firstItem="IUu-Vz-gdA" firstAttribute="top" secondItem="mdV-5U-uw0" secondAttribute="bottom" constant="19" id="6GQ-yV-elz"/>
                     <constraint firstItem="IUu-Vz-gdA" firstAttribute="leading" secondItem="fkI-fO-GuL" secondAttribute="trailing" constant="25" id="8lk-VZ-GDj"/>
                     <constraint firstAttribute="trailing" secondItem="mdV-5U-uw0" secondAttribute="trailing" constant="3" id="Ca0-eC-1ks"/>
-                    <constraint firstAttribute="trailing" secondItem="K0H-Xh-k7N" secondAttribute="trailing" id="D9K-RF-85K"/>
+                    <constraint firstAttribute="trailing" secondItem="K0H-Xh-k7N" secondAttribute="trailing" constant="10" id="D9K-RF-85K"/>
                     <constraint firstAttribute="trailing" secondItem="IUu-Vz-gdA" secondAttribute="trailing" constant="3" id="E19-c1-3Cf"/>
                     <constraint firstAttribute="bottom" secondItem="P9w-Tu-aZK" secondAttribute="bottom" constant="10" id="Gzj-ja-lKd"/>
-                    <constraint firstItem="mdV-5U-uw0" firstAttribute="top" secondItem="K0H-Xh-k7N" secondAttribute="bottom" constant="17" id="KDD-QW-S9w"/>
+                    <constraint firstItem="mdV-5U-uw0" firstAttribute="top" secondItem="K0H-Xh-k7N" secondAttribute="bottom" constant="12" id="KDD-QW-S9w"/>
                     <constraint firstItem="K0H-Xh-k7N" firstAttribute="leading" secondItem="P9w-Tu-aZK" secondAttribute="trailing" constant="97" id="KSa-ds-fWy"/>
                     <constraint firstAttribute="bottomMargin" secondItem="fkI-fO-GuL" secondAttribute="bottom" constant="3" id="QH3-o0-9hW"/>
                     <constraint firstItem="mdV-5U-uw0" firstAttribute="leading" secondItem="W77-DX-fhf" secondAttribute="trailing" constant="25" id="Tii-6j-WlP"/>
                     <constraint firstItem="P9w-Tu-aZK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="UF7-yb-Lho"/>
                     <constraint firstItem="fkI-fO-GuL" firstAttribute="top" secondItem="W77-DX-fhf" secondAttribute="bottom" constant="19" id="VhY-AF-LYI"/>
-                    <constraint firstItem="K0H-Xh-k7N" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ZJl-Fd-2Xp"/>
+                    <constraint firstItem="K0H-Xh-k7N" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="ZJl-Fd-2Xp"/>
                     <constraint firstItem="fkI-fO-GuL" firstAttribute="leading" secondItem="P9w-Tu-aZK" secondAttribute="trailing" constant="18" id="bEx-Gp-ekO"/>
-                    <constraint firstItem="W77-DX-fhf" firstAttribute="top" secondItem="K0H-Xh-k7N" secondAttribute="bottom" constant="17" id="buN-KG-SMl"/>
+                    <constraint firstItem="W77-DX-fhf" firstAttribute="top" secondItem="K0H-Xh-k7N" secondAttribute="bottom" constant="12" id="buN-KG-SMl"/>
                     <constraint firstItem="P9w-Tu-aZK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="kLP-dD-9OB"/>
                 </constraints>
             </tableViewCellContentView>
