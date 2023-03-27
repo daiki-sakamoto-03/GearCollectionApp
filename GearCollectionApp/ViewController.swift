@@ -42,14 +42,27 @@ class ViewController: ButtonBarPagerTabStripViewController {
 
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         //管理されるViewControllerを返す処理
-        let allVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "All")
-        let tentAndTarpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TentAndTarp")
-        let tableAndChairVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TableAndChair")
-        let fireVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Fire")
-        let kitchenAndTablewearVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "KitchenAndTablewear")
-        let sleepingVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Sleeping")
-        let otherVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Other")
-
+        let allVC = self.storyboard?.instantiateViewController(withIdentifier: "All") as! AllViewController
+        allVC.gearType = .all
+        
+        let tentAndTarpVC = self.storyboard?.instantiateViewController(withIdentifier: "All") as! AllViewController
+        tentAndTarpVC.gearType = .tentAndTarp
+        
+        let tableAndChairVC = self.storyboard?.instantiateViewController(withIdentifier: "All") as! AllViewController
+        tableAndChairVC.gearType = .tableAndChair
+        
+        let fireVC = self.storyboard?.instantiateViewController(withIdentifier: "All") as! AllViewController
+        fireVC.gearType = .fire
+        
+        let kitchenAndTablewearVC = self.storyboard?.instantiateViewController(withIdentifier: "All") as! AllViewController
+        kitchenAndTablewearVC.gearType = .kitchenAndTablewear
+        
+        let sleepingVC = self.storyboard?.instantiateViewController(withIdentifier: "All") as! AllViewController
+        sleepingVC.gearType = .sleeping
+        
+        let otherVC = self.storyboard?.instantiateViewController(withIdentifier: "All") as! AllViewController
+        otherVC.gearType = .other
+        
         let childViewControllers:[UIViewController] = [allVC,
                                                        tentAndTarpVC,
                                                        tableAndChairVC,

@@ -24,20 +24,20 @@
                                     <constraint firstAttribute="height" constant="50" id="VA1-CZ-ffy"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="o6H-vI-xDH">
-                                    <size key="itemSize" width="140" height="50"/>
+                                    <size key="itemSize" width="140" height="56"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="whh-4h-yZF">
-                                        <rect key="frame" x="0.0" y="0.0" width="140" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="56"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="e0A-aT-0y1">
-                                            <rect key="frame" x="0.0" y="0.0" width="140" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="140" height="56"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="140" height="50"/>
+                                        <size key="customSize" width="140" height="56"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -67,14 +67,14 @@
                         <constraints>
                             <constraint firstItem="vfM-6S-yEY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4Gk-dl-i18"/>
                             <constraint firstItem="vfM-6S-yEY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="6uF-AO-KJh"/>
-                            <constraint firstItem="EgK-Ix-9oC" firstAttribute="top" secondItem="vfM-6S-yEY" secondAttribute="bottom" constant="8" id="8Qc-8Y-r6U"/>
-                            <constraint firstItem="EgK-Ix-9oC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="KGR-gO-uhZ"/>
+                            <constraint firstAttribute="bottom" secondItem="EgK-Ix-9oC" secondAttribute="bottom" id="LM5-F9-VeB"/>
+                            <constraint firstItem="EgK-Ix-9oC" firstAttribute="top" secondItem="vfM-6S-yEY" secondAttribute="bottom" id="Qsu-vx-hnk"/>
+                            <constraint firstItem="EgK-Ix-9oC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="UvC-4j-TOI"/>
                             <constraint firstItem="PjS-hK-bGs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="YBa-AT-cqu"/>
                             <constraint firstItem="PjS-hK-bGs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ag6-NO-LEP"/>
                             <constraint firstItem="PjS-hK-bGs" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="asq-KX-1E1"/>
+                            <constraint firstItem="EgK-Ix-9oC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ku5-XC-4J0"/>
                             <constraint firstItem="vfM-6S-yEY" firstAttribute="top" secondItem="PjS-hK-bGs" secondAttribute="bottom" constant="1" id="vho-7Y-YDV"/>
-                            <constraint firstItem="EgK-Ix-9oC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="vz3-zu-zND"/>
-                            <constraint firstAttribute="bottom" secondItem="EgK-Ix-9oC" secondAttribute="bottom" id="xfN-9c-okA"/>
                         </constraints>
                     </view>
                     <connections>

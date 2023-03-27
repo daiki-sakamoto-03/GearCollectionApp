@@ -5,7 +5,7 @@
 //  Created by 坂本　大貴 on 2023/03/24.
 //
 
-enum CategoryGearType: Int {
+enum GearCollectionType: Int {
     case all
     case tentAndTarp
     case tableAndChair

@@ -19,7 +19,7 @@ class AllViewController: UIViewController, IndicatorInfoProvider {
     let allTableViewCell = AllTableViewCell()
     var gearDataList: [GearRecord] = []
     var realm: Realm!
-    var gearType: CategoryGearType = .all
+    var gearType: GearCollectionType = .all
     let gearDetailVC = GearDetailViewController()
     var record = GearRecord()
     var formatter = DateFormatter()
@@ -48,8 +48,6 @@ class AllViewController: UIViewController, IndicatorInfoProvider {
         setGearData()
         allTableView.reloadData()
         totalIndicate()
-        print("😭\(record.date)")
-
     }
     
     override func didReceiveMemoryWarning() {
@@ -60,6 +58,8 @@ class AllViewController: UIViewController, IndicatorInfoProvider {
         return XLPagerTabStrip.IndicatorInfo(title: gearType.gearTypeName)
     }
     
+    
+// MARK: gearType.gearTypeNameと一致するものだけフィルタリングしてgearDataListにに代入する
     func setGearData() {
         let realm = try! Realm()
         let result = realm.objects(GearRecord.self)
@@ -104,8 +104,7 @@ extension AllViewController: UITableViewDataSource, UITableViewDelegate {
         cell.nameLabel.text = gearRecord.name
         cell.amountLabel.text = "\(gearRecord.amount)円"
         cell.weightLabel.text = "\(gearRecord.weight)kg"
-        
-        cell.dateLabel.text = dateToString.string(from: Date())
+        cell.dateLabel.text = dateToString.string(from: gearRecord.date)
         cell.img.image = loadImage(fileName: gearRecord.imageURL)
         return cell
     }
