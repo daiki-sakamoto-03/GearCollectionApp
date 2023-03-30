@@ -59,13 +59,22 @@ class AllViewController: UIViewController, IndicatorInfoProvider {
     }
     
     
-// MARK: gearType.gearTypeNameと一致するものだけフィルタリングしてgearDataListにに代入する
+// MARK: gearType.gearTypeNameと一致するものだけフィルタリングしてgearDataListに代入する
     func setGearData() {
         let realm = try! Realm()
         let result = realm.objects(GearRecord.self)
-        gearDataList = Array(result)
-        // Date→Stringに変換する
-        
+        let tentAndTarp = result.filter("gearType.gearTypeName == 'TENT&TARP'")
+        gearDataList = Array(tentAndTarp)
+        let tableAndChair = result.filter("gearType.gearTypeName == 'TABLE&CHAIR'")
+        gearDataList = Array(tableAndChair)
+        let fire = result.filter("gearType.gearTypeName == 'FIRE'")
+        gearDataList = Array(fire)
+        let kitchenAndTableWear = result.filter("gearType.gearTypeName == 'KITCHEN&TABLEWEAR'")
+        gearDataList = Array(kitchenAndTableWear)
+        let sleeping = result.filter("gearType.gearTypeName == 'SLEEPING'")
+        gearDataList = Array(sleeping)
+        let other = result.filter("gearType.gearTypeName == 'OTHER'")
+        gearDataList = Array(other)
         }
     
     // Realmに保存されたデータを合計し、ギアの個数、総額、総重量を表示するメソッド
@@ -161,6 +170,8 @@ extension AllViewController: UITableViewDataSource, UITableViewDelegate {
         formatter.dateFormat = "yyyy年MM月dd日"
         return formatter
     }
+    
+    
 
     
 }
