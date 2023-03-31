@@ -63,18 +63,16 @@ class AllViewController: UIViewController, IndicatorInfoProvider {
     func setGearData() {
         let realm = try! Realm()
         let result = realm.objects(GearRecord.self)
-        let tentAndTarp = result.filter("gearType.gearTypeName == 'TENT&TARP'")
-        gearDataList = Array(tentAndTarp)
-        let tableAndChair = result.filter("gearType.gearTypeName == 'TABLE&CHAIR'")
-        gearDataList = Array(tableAndChair)
-        let fire = result.filter("gearType.gearTypeName == 'FIRE'")
-        gearDataList = Array(fire)
-        let kitchenAndTableWear = result.filter("gearType.gearTypeName == 'KITCHEN&TABLEWEAR'")
-        gearDataList = Array(kitchenAndTableWear)
-        let sleeping = result.filter("gearType.gearTypeName == 'SLEEPING'")
-        gearDataList = Array(sleeping)
-        let other = result.filter("gearType.gearTypeName == 'OTHER'")
-        gearDataList = Array(other)
+        if self.gearType.gearTypeName == "ALL" {
+            gearDataList = Array(result)
+        } else {
+            let filterGearDataList = result.filter {
+                gearDataList in gearDataList.category == self.gearType.gearTypeName
+            }
+            gearDataList = Array(filterGearDataList)
+
+        }
+        
         }
     
     // Realmに保存されたデータを合計し、ギアの個数、総額、総重量を表示するメソッド
