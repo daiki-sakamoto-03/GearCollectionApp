@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		14324252244D355B83816551 /* Pods_GearCollectionApp_GearCollectionAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B4CC14D66D1A43515DB736 /* Pods_GearCollectionApp_GearCollectionAppUITests.framework */; };
 		30F5A4D2D5931DE1C8C50322 /* Pods_GearCollectionApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A92AE29DAD98A566632868 /* Pods_GearCollectionApp.framework */; };
+		523E8E132997909B00BC6C15 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523E8E112997909B00BC6C15 /* CollectionViewCell.swift */; };
+		523E8E142997909B00BC6C15 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 523E8E122997909B00BC6C15 /* CollectionViewCell.xib */; };
+		523E8E182999035700BC6C15 /* GearDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523E8E172999035700BC6C15 /* GearDataModel.swift */; };
 		5258BABF2993C05A00814796 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258BABE2993C05A00814796 /* AppDelegate.swift */; };
 		5258BAC12993C05A00814796 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258BAC02993C05A00814796 /* SceneDelegate.swift */; };
 		5258BAC32993C05A00814796 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258BAC22993C05A00814796 /* ViewController.swift */; };
@@ -18,6 +21,19 @@
 		5258BAD62993C05B00814796 /* GearCollectionAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258BAD52993C05B00814796 /* GearCollectionAppTests.swift */; };
 		5258BAE02993C05B00814796 /* GearCollectionAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258BADF2993C05B00814796 /* GearCollectionAppUITests.swift */; };
 		5258BAE22993C05B00814796 /* GearCollectionAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258BAE12993C05B00814796 /* GearCollectionAppUITestsLaunchTests.swift */; };
+		52C0E1A7299BBA9800503EF4 /* GearTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1A6299BBA9800503EF4 /* GearTypeModel.swift */; };
+		52C0E1A9299FA80C00503EF4 /* AllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1A8299FA80C00503EF4 /* AllViewController.swift */; };
+		52C0E1AB299FA8AE00503EF4 /* TentAndTarpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1AA299FA8AE00503EF4 /* TentAndTarpViewController.swift */; };
+		52C0E1AE29A10A8700503EF4 /* TableAndChairViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1AD29A10A8700503EF4 /* TableAndChairViewController.swift */; };
+		52C0E1B029A10AA200503EF4 /* FireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1AF29A10AA200503EF4 /* FireViewController.swift */; };
+		52C0E1B229A10AD200503EF4 /* KitchenAndTablewearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1B129A10AD200503EF4 /* KitchenAndTablewearViewController.swift */; };
+		52C0E1B429A10AEB00503EF4 /* SleepingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1B329A10AEB00503EF4 /* SleepingViewController.swift */; };
+		52C0E1B629A10B0200503EF4 /* OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1B529A10B0200503EF4 /* OtherViewController.swift */; };
+		52C0E1BF29A4E8C100503EF4 /* AllTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1BD29A4E8C100503EF4 /* AllTableViewCell.swift */; };
+		52C0E1C029A4E8C100503EF4 /* AllTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52C0E1BE29A4E8C100503EF4 /* AllTableViewCell.xib */; };
+		52C0E1C229A6FF1300503EF4 /* GearDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1C129A6FF1300503EF4 /* GearDetailViewController.swift */; };
+		52C0E1C429A8ED7500503EF4 /* GearRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E1C329A8ED7500503EF4 /* GearRecord.swift */; };
+		52C4466229CDE0520027328B /* GearCollectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C4466129CDE0520027328B /* GearCollectionType.swift */; };
 		8DA54EF818685379A91037AC /* Pods_GearCollectionAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1919560782DADAC9C9A14D01 /* Pods_GearCollectionAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +57,9 @@
 /* Begin PBXFileReference section */
 		1919560782DADAC9C9A14D01 /* Pods_GearCollectionAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GearCollectionAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		269C8380CC2741CEF78946BB /* Pods-GearCollectionAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GearCollectionAppTests.debug.xcconfig"; path = "Target Support Files/Pods-GearCollectionAppTests/Pods-GearCollectionAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		523E8E112997909B00BC6C15 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		523E8E122997909B00BC6C15 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		523E8E172999035700BC6C15 /* GearDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearDataModel.swift; sourceTree = "<group>"; };
 		5258BABB2993C05A00814796 /* GearCollectionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GearCollectionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5258BABE2993C05A00814796 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5258BAC02993C05A00814796 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +73,19 @@
 		5258BADB2993C05B00814796 /* GearCollectionAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GearCollectionAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5258BADF2993C05B00814796 /* GearCollectionAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearCollectionAppUITests.swift; sourceTree = "<group>"; };
 		5258BAE12993C05B00814796 /* GearCollectionAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearCollectionAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		52C0E1A6299BBA9800503EF4 /* GearTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearTypeModel.swift; sourceTree = "<group>"; };
+		52C0E1A8299FA80C00503EF4 /* AllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllViewController.swift; sourceTree = "<group>"; };
+		52C0E1AA299FA8AE00503EF4 /* TentAndTarpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TentAndTarpViewController.swift; sourceTree = "<group>"; };
+		52C0E1AD29A10A8700503EF4 /* TableAndChairViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableAndChairViewController.swift; sourceTree = "<group>"; };
+		52C0E1AF29A10AA200503EF4 /* FireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireViewController.swift; sourceTree = "<group>"; };
+		52C0E1B129A10AD200503EF4 /* KitchenAndTablewearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenAndTablewearViewController.swift; sourceTree = "<group>"; };
+		52C0E1B329A10AEB00503EF4 /* SleepingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepingViewController.swift; sourceTree = "<group>"; };
+		52C0E1B529A10B0200503EF4 /* OtherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViewController.swift; sourceTree = "<group>"; };
+		52C0E1BD29A4E8C100503EF4 /* AllTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTableViewCell.swift; sourceTree = "<group>"; };
+		52C0E1BE29A4E8C100503EF4 /* AllTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllTableViewCell.xib; sourceTree = "<group>"; };
+		52C0E1C129A6FF1300503EF4 /* GearDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearDetailViewController.swift; sourceTree = "<group>"; };
+		52C0E1C329A8ED7500503EF4 /* GearRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearRecord.swift; sourceTree = "<group>"; };
+		52C4466129CDE0520027328B /* GearCollectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearCollectionType.swift; sourceTree = "<group>"; };
 		70B4CC14D66D1A43515DB736 /* Pods_GearCollectionApp_GearCollectionAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GearCollectionApp_GearCollectionAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A92AE29DAD98A566632868 /* Pods_GearCollectionApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GearCollectionApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EBDB57B207869E088EECF10 /* Pods-GearCollectionApp-GearCollectionAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GearCollectionApp-GearCollectionAppUITests.release.xcconfig"; path = "Target Support Files/Pods-GearCollectionApp-GearCollectionAppUITests/Pods-GearCollectionApp-GearCollectionAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -118,7 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				5258BABD2993C05A00814796 /* GearCollectionApp */,
-				5258BAD42993C05B00814796 /* GearCollectionAppTests */,
 				5258BADE2993C05B00814796 /* GearCollectionAppUITests */,
 				5258BABC2993C05A00814796 /* Products */,
 				18FF06C7526E97EF90F9C4C2 /* Pods */,
@@ -141,11 +172,14 @@
 			children = (
 				5258BABE2993C05A00814796 /* AppDelegate.swift */,
 				5258BAC02993C05A00814796 /* SceneDelegate.swift */,
-				5258BAC22993C05A00814796 /* ViewController.swift */,
-				5258BAC42993C05A00814796 /* Main.storyboard */,
+				52C0E1B829A3ABE400503EF4 /* VC */,
+				52C0E1BC29A3AC8A00503EF4 /* Storyboard */,
 				5258BAC72993C05B00814796 /* Assets.xcassets */,
-				5258BAC92993C05B00814796 /* LaunchScreen.storyboard */,
 				5258BACC2993C05B00814796 /* Info.plist */,
+				523E8E172999035700BC6C15 /* GearDataModel.swift */,
+				52C0E1A6299BBA9800503EF4 /* GearTypeModel.swift */,
+				52C0E1C329A8ED7500503EF4 /* GearRecord.swift */,
+				5258BAD42993C05B00814796 /* GearCollectionAppTests */,
 			);
 			path = GearCollectionApp;
 			sourceTree = "<group>";
@@ -165,6 +199,44 @@
 				5258BAE12993C05B00814796 /* GearCollectionAppUITestsLaunchTests.swift */,
 			);
 			path = GearCollectionAppUITests;
+			sourceTree = "<group>";
+		};
+		52C0E1B829A3ABE400503EF4 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				5258BAC22993C05A00814796 /* ViewController.swift */,
+				52C0E1A8299FA80C00503EF4 /* AllViewController.swift */,
+				52C0E1AA299FA8AE00503EF4 /* TentAndTarpViewController.swift */,
+				52C0E1AD29A10A8700503EF4 /* TableAndChairViewController.swift */,
+				52C0E1AF29A10AA200503EF4 /* FireViewController.swift */,
+				52C0E1B129A10AD200503EF4 /* KitchenAndTablewearViewController.swift */,
+				52C0E1B329A10AEB00503EF4 /* SleepingViewController.swift */,
+				52C0E1B529A10B0200503EF4 /* OtherViewController.swift */,
+				52C0E1C129A6FF1300503EF4 /* GearDetailViewController.swift */,
+				52C4466129CDE0520027328B /* GearCollectionType.swift */,
+				52C0E1BA29A3AC3E00503EF4 /* Cell */,
+			);
+			name = VC;
+			sourceTree = "<group>";
+		};
+		52C0E1BA29A3AC3E00503EF4 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				523E8E112997909B00BC6C15 /* CollectionViewCell.swift */,
+				523E8E122997909B00BC6C15 /* CollectionViewCell.xib */,
+				52C0E1BD29A4E8C100503EF4 /* AllTableViewCell.swift */,
+				52C0E1BE29A4E8C100503EF4 /* AllTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		52C0E1BC29A3AC8A00503EF4 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				5258BAC42993C05A00814796 /* Main.storyboard */,
+				5258BAC92993C05B00814796 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +350,8 @@
 			files = (
 				5258BACB2993C05B00814796 /* LaunchScreen.storyboard in Resources */,
 				5258BAC82993C05B00814796 /* Assets.xcassets in Resources */,
+				52C0E1C029A4E8C100503EF4 /* AllTableViewCell.xib in Resources */,
+				523E8E142997909B00BC6C15 /* CollectionViewCell.xib in Resources */,
 				5258BAC62993C05A00814796 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,9 +480,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52C0E1B029A10AA200503EF4 /* FireViewController.swift in Sources */,
+				52C0E1B629A10B0200503EF4 /* OtherViewController.swift in Sources */,
+				52C0E1C229A6FF1300503EF4 /* GearDetailViewController.swift in Sources */,
+				52C0E1B429A10AEB00503EF4 /* SleepingViewController.swift in Sources */,
+				52C0E1BF29A4E8C100503EF4 /* AllTableViewCell.swift in Sources */,
+				52C0E1A9299FA80C00503EF4 /* AllViewController.swift in Sources */,
+				52C0E1A7299BBA9800503EF4 /* GearTypeModel.swift in Sources */,
 				5258BAC32993C05A00814796 /* ViewController.swift in Sources */,
 				5258BABF2993C05A00814796 /* AppDelegate.swift in Sources */,
+				52C0E1C429A8ED7500503EF4 /* GearRecord.swift in Sources */,
+				523E8E132997909B00BC6C15 /* CollectionViewCell.swift in Sources */,
 				5258BAC12993C05A00814796 /* SceneDelegate.swift in Sources */,
+				52C4466229CDE0520027328B /* GearCollectionType.swift in Sources */,
+				52C0E1AB299FA8AE00503EF4 /* TentAndTarpViewController.swift in Sources */,
+				52C0E1AE29A10A8700503EF4 /* TableAndChairViewController.swift in Sources */,
+				52C0E1B229A10AD200503EF4 /* KitchenAndTablewearViewController.swift in Sources */,
+				523E8E182999035700BC6C15 /* GearDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

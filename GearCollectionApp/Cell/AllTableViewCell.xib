@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="110" id="KGk-i7-Jjw" customClass="AllTableViewCell" customModule="GearCollectionApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="340" height="110"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="340" height="110"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W77-DX-fhf">
+                        <rect key="frame" x="118" y="37" width="100" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="6bh-gv-XRB"/>
+                            <constraint firstAttribute="height" constant="20" id="Wfq-fw-iWk"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkI-fO-GuL">
+                        <rect key="frame" x="118" y="76" width="100" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="hQP-gl-kKa"/>
+                            <constraint firstAttribute="height" constant="20" id="ibe-Vx-Tde"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdV-5U-uw0">
+                        <rect key="frame" x="243" y="37" width="80" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="Gb0-2B-I8x"/>
+                            <constraint firstAttribute="height" constant="20" id="x3t-eP-dKJ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0H-Xh-k7N">
+                        <rect key="frame" x="197" y="5" width="120" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="120" id="JFO-fP-5Yc"/>
+                            <constraint firstAttribute="height" constant="20" id="xp1-mX-vFT"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P9w-Tu-aZK">
+                        <rect key="frame" x="10" y="10" width="90" height="90"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="90" id="BzN-bS-UyF"/>
+                            <constraint firstAttribute="width" constant="90" id="hyR-1B-aev"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUu-Vz-gdA">
+                        <rect key="frame" x="243" y="76" width="80" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="1AZ-Gi-dnx"/>
+                            <constraint firstAttribute="width" constant="80" id="zOZ-3T-MVO"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="W77-DX-fhf" firstAttribute="leading" secondItem="P9w-Tu-aZK" secondAttribute="trailing" constant="18" id="37M-jF-tmd"/>
+                    <constraint firstItem="IUu-Vz-gdA" firstAttribute="top" secondItem="mdV-5U-uw0" secondAttribute="bottom" constant="19" id="6GQ-yV-elz"/>
+                    <constraint firstItem="IUu-Vz-gdA" firstAttribute="leading" secondItem="fkI-fO-GuL" secondAttribute="trailing" constant="25" id="8lk-VZ-GDj"/>
+                    <constraint firstAttribute="trailing" secondItem="mdV-5U-uw0" secondAttribute="trailing" constant="3" id="Ca0-eC-1ks"/>
+                    <constraint firstAttribute="trailing" secondItem="K0H-Xh-k7N" secondAttribute="trailing" constant="10" id="D9K-RF-85K"/>
+                    <constraint firstAttribute="trailing" secondItem="IUu-Vz-gdA" secondAttribute="trailing" constant="3" id="E19-c1-3Cf"/>
+                    <constraint firstAttribute="bottom" secondItem="P9w-Tu-aZK" secondAttribute="bottom" constant="10" id="Gzj-ja-lKd"/>
+                    <constraint firstItem="mdV-5U-uw0" firstAttribute="top" secondItem="K0H-Xh-k7N" secondAttribute="bottom" constant="12" id="KDD-QW-S9w"/>
+                    <constraint firstItem="K0H-Xh-k7N" firstAttribute="leading" secondItem="P9w-Tu-aZK" secondAttribute="trailing" constant="97" id="KSa-ds-fWy"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="fkI-fO-GuL" secondAttribute="bottom" constant="3" id="QH3-o0-9hW"/>
+                    <constraint firstItem="mdV-5U-uw0" firstAttribute="leading" secondItem="W77-DX-fhf" secondAttribute="trailing" constant="25" id="Tii-6j-WlP"/>
+                    <constraint firstItem="P9w-Tu-aZK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="UF7-yb-Lho"/>
+                    <constraint firstItem="fkI-fO-GuL" firstAttribute="top" secondItem="W77-DX-fhf" secondAttribute="bottom" constant="19" id="VhY-AF-LYI"/>
+                    <constraint firstItem="K0H-Xh-k7N" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="ZJl-Fd-2Xp"/>
+                    <constraint firstItem="fkI-fO-GuL" firstAttribute="leading" secondItem="P9w-Tu-aZK" secondAttribute="trailing" constant="18" id="bEx-Gp-ekO"/>
+                    <constraint firstItem="W77-DX-fhf" firstAttribute="top" secondItem="K0H-Xh-k7N" secondAttribute="bottom" constant="12" id="buN-KG-SMl"/>
+                    <constraint firstItem="P9w-Tu-aZK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="kLP-dD-9OB"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="amountLabel" destination="mdV-5U-uw0" id="yhw-cI-WpT"/>
+                <outlet property="dateLabel" destination="K0H-Xh-k7N" id="QAC-SH-i3B"/>
+                <outlet property="img" destination="P9w-Tu-aZK" id="n4j-0W-jI2"/>
+                <outlet property="makerLabel" destination="W77-DX-fhf" id="mXy-0O-eUC"/>
+                <outlet property="nameLabel" destination="fkI-fO-GuL" id="cLc-FM-54O"/>
+                <outlet property="weightLabel" destination="IUu-Vz-gdA" id="HUi-Eq-zMt"/>
+            </connections>
+            <point key="canvasLocation" x="61.068702290076331" y="-11.267605633802818"/>
+        </tableViewCell>
+    </objects>
+</document>
